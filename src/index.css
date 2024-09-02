@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer utilities {
+    .pages-enter {
+        transform: translate(100%, 0);
+    }
+
+    .pages-enter-active {
+        transform: translate(0, 0);
+        transition: transform 3s;
+    }
+
+    .pages-exit {
+        transform: translate(0, 0);
+    }
+
+    .pages-exit-active {
+        transform: translate(-100%, 0);
+        transition: transform 3s;
+    }
+}
