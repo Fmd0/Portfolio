@@ -3,6 +3,16 @@
 @tailwind utilities;
 
 
+@layer base {
+    @font-face {
+        font-family: 'Mnn';
+        font-weight: normal;
+        font-style: normal;
+        src: url('assets/Mnm.woff') format('woff');
+    }
+}
+
+
 @layer utilities {
     .pages-enter {
         transform: translate(100%, 0);
@@ -10,7 +20,7 @@
 
     .pages-enter-active {
         transform: translate(0, 0);
-        transition: transform 3s;
+        transition: transform 3s cubic-bezier(0.19, 1, 0.22, 1);
     }
 
     .pages-exit {
@@ -19,6 +29,6 @@
 
     .pages-exit-active {
         transform: translate(-100%, 0);
-        transition: transform 3s;
+        transition: transform 3s cubic-bezier(0.19, 1, 0.22, 1);
     }
 }
