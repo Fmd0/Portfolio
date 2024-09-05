@@ -1,0 +1,66 @@
+
+.link {
+  position: relative;
+  font-family: Mnn;
+  font-size: 12px;
+  padding-bottom: 1px;
+  border-bottom: 1px solid transparent;
+  transition-duration: 350ms;
+  letter-spacing: 1px;
+}
+
+.animationFlexContainerTop {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.animationFlexContainerTop__item {
+  will-change: transform;
+  opacity: 0;
+  transform: translate3d(0, -12px, 0);
+  transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1),transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.link:hover .animationFlexContainerTop__item--hover {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: opacity 600ms cubic-bezier(0.19, 1, 0.22, 1),transform cubic-bezier(0.55, 0, 0.1, 1) 350ms;
+
+  @for $i from 1 through 16 {
+    &:nth-child(#{$i}) {
+      transition-delay: 0.02s * $i;
+    }
+  }
+}
+
+.animationFlexContainerBottom {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.animationFlexContainerBottom__item {
+  will-change: transform;
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: opacity 1s cubic-bezier(0.19, 1, 0.22, 1) 150ms,transform 1s cubic-bezier(0.19, 1, 0.22, 1) 150ms;
+}
+
+.link:hover .animationFlexContainerBottom__item--hover {
+  opacity: 0;
+  transform: translate3d(0, 12px, 0);
+  transition: opacity 350ms cubic-bezier(0.55, 0.055, 0.675, 0.19),transform cubic-bezier(0.55, 0, 0.1, 1) 350ms;
+
+  @for $i from 1 through 16 {
+    &:nth-child(#{$i}) {
+      transition-delay: 0.02s * $i - 0.02s;
+    }
+  }
+
+}
+
+.selected {
+  border-bottom: 1px solid white;
+}

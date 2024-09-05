@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom";
-import HoverAnimationLink from "./HoverAnimationLink.tsx";
+import HoverAnimationLink from "./HoverAnimationLink/HoverAnimationLink.tsx";
 
 const NavBar = () => {
     return (
