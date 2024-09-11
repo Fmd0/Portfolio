@@ -1,0 +1,40 @@
+
+
+.pagesEnter {
+  position: relative;
+  z-index: 10;
+  transform: translate3d(100%,0,0) skew(0deg, 0deg);
+  will-change: transform;
+}
+
+.pagesEnterDone {
+  transform: translate3d(0,0,0) skew(0deg, 0deg);
+}
+
+
+.homeExit > div > p {
+  color: white;
+}
+
+.homeExitActive > div > p {
+  color: transparent;
+  transition: color 1s;
+}
+
+
+.homeEnterDone > div > p {
+  animation: enter 1s ease 1s forwards !important;
+}
+
+
+@keyframes homeEnterAnimation {
+  from {
+    opacity: 0;
+    transform: translate3d(100px, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}

@@ -1,6 +1,6 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import Layout from "./components/Layout.tsx";
-import Home from "./routes/Home.tsx";
+import Layout from "./components/Layout/Layout.tsx";
+import Home from "./routes/Home/Home.tsx";
 import Contact from "./routes/Contact.tsx";
 import Error from "./routes/Error.tsx";
 import Projects from "./routes/Projects.tsx";
