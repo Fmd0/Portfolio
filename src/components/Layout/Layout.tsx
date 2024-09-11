@@ -19,9 +19,14 @@ const cssClassMap =  {
 }
 
 let tween = null;
-const windowDegree = Math.atan(window.innerWidth/window.innerHeight/4)/Math.PI * 180;
+const windowDegree = Math.atan(window.innerWidth/window.innerHeight/3.5)/Math.PI * 180;
 
-const handleEnter = () => {
+const handleEnter = (isAppearing: boolean) => {
+
+    if(isAppearing) {
+        return;
+    }
+
     if(tween) {
         tween.kill();
     }
@@ -30,13 +35,17 @@ const handleEnter = () => {
     let degree = -windowDegree;
     let progress = 0;
 
+    if(window.location.pathname === "/") {
+        (nodeRefMap["/"].current as HTMLDivElement).className += " "+classes['homeNormal'];
+    }
+
     setTimeout(() => {
         tween = gsap.to({},
             {
                 onUpdate: function () {
                     progress = this.progress();
                     position = gsap.utils.interpolate(0, 100, gsap.parseEase("expo.inOut")(progress));
-                    degree = gsap.utils.interpolate(-windowDegree, windowDegree, gsap.parseEase("power1.inOut")(progress));
+                    degree = gsap.utils.interpolate(-windowDegree, windowDegree, gsap.parseEase("power3.inOut")(progress));
                     htmlElement.style.transform = `translate3d(${100-position}%,0,0) skew(${windowDegree-Math.abs(degree)}deg, 0deg)`;
                 },
                 duration: 1.2,
@@ -54,12 +63,15 @@ const Layout = () => {
             <TransitionGroup>
                 <CSSTransition key={location.pathname} nodeRef={nodeRefMap[location.pathname]} timeout={2000}
                                classNames={{
-                                   enter: classes['pagesEnter'],
+                                   enter: classes[`${cssClassMap[window.location.pathname]}Enter`],
                                    enterDone: classes[`${cssClassMap[window.location.pathname]}EnterDone`],
                                    exit: classes[`${cssClassMap[window.location.pathname]}Exit`],
                                    exitActive: classes[`${cssClassMap[window.location.pathname]}ExitActive`],
+                                   appear: classes[`${cssClassMap[window.location.pathname]}Appear`],
+                                   appearDone: classes[`${cssClassMap[window.location.pathname]}AppearDone`],
                                }}
                                onEnter={handleEnter}
+                               appear={true}
                                unmountOnExit
                 >
                     <div ref={nodeRefMap[location.pathname]}>

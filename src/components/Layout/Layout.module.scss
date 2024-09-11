@@ -1,33 +1,36 @@
 
 
-.pagesEnter {
+.homeEnter, .contactEnter, .projectsEnter {
   position: relative;
   z-index: 10;
   transform: translate3d(100%,0,0) skew(0deg, 0deg);
   will-change: transform;
 }
 
-.pagesEnterDone {
-  transform: translate3d(0,0,0) skew(0deg, 0deg);
+.homeNormal {
+  &  > div > p {
+    opacity: 0;
+    transform: translate3d(100px, 0, 0);
+    animation: homeAppearAnimation 1s 1.2s ease forwards;
+  }
+}
+
+.homeExit {
+  & > div > p {
+    animation: textExitAnimation 0.5s forwards;
+  }
+}
+
+.homeAppear {
+  & > div > p {
+    opacity: 0;
+    transform: translate3d(100px, 0, 0);
+    animation: homeAppearAnimation 1s ease forwards;
+  }
 }
 
 
-.homeExit > div > p {
-  color: white;
-}
-
-.homeExitActive > div > p {
-  color: transparent;
-  transition: color 1s;
-}
-
-
-.homeEnterDone > div > p {
-  animation: enter 1s ease 1s forwards !important;
-}
-
-
-@keyframes homeEnterAnimation {
+@keyframes homeAppearAnimation {
   from {
     opacity: 0;
     transform: translate3d(100px, 0, 0);
@@ -36,5 +39,17 @@
   to {
     opacity: 1;
     transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes textExitAnimation {
+  from {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 0;
   }
 }
