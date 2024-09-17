@@ -1,8 +1,9 @@
 import {Link} from "react-router-dom";
 import classes from "./HoverAnimationLink.module.scss";
 
-const HoverAnimationLink = ({pathname}: {
+const HoverAnimationLink = ({pathname, textName}: {
     pathname: string,
+    textName: string,
 }) => {
 
 
@@ -19,20 +20,18 @@ const HoverAnimationLink = ({pathname}: {
             <div className={[classes.link, selected?classes.selected:""].join(" ")} >
                 <p className={classes.animationFlexContainerTop}>
                     {
-                        pathname.split("").map((p, index) => (
+                        textName.split("").map((p, index) => (
                             <span key={index}
                                className={[classes.animationFlexContainerTop__item, selected?"":classes["animationFlexContainerTop__item--hover"]].join(" ")}
-                               // style={{transitionDelay: `${(index+1) * 0.02}s `}}
                             >{p.toUpperCase()}</span>
                         ))
                     }
                 </p>
                 <p className={classes.animationFlexContainerBottom}>
                     {
-                        pathname.split("").map((p, index) => (
+                        textName.split("").map((p, index) => (
                             <span key={index}
                                className={[classes.animationFlexContainerBottom__item, selected?"":classes["animationFlexContainerBottom__item--hover"]].join(" ")}
-                               // style={{transitionDelay: `${index * 0.02}s`}}
                             >{p.toUpperCase()}</span>
                         ))
                     }

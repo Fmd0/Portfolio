@@ -35,8 +35,12 @@ const handleEnter = (isAppearing: boolean) => {
     let degree = -windowDegree;
     let progress = 0;
 
+
     if(window.location.pathname === "/") {
         (nodeRefMap["/"].current as HTMLDivElement).className += " "+classes['homeNormal'];
+        // setTimeout(() => {
+        //     (nodeRefMap["/"].current as HTMLDivElement).className = (nodeRefMap["/"].current as HTMLDivElement).className.replace(classes['homeNormal'], "")
+        // }, 2500)
     }
 
     setTimeout(() => {
