@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import {useRef} from "react";
 import {useFrame} from "@react-three/fiber";
+import {IS_HOME_CANVAS_ANIMATION} from "../utils/constants.ts";
 
 
 
@@ -46,7 +47,7 @@ const Cloud = ({rotation}: {
 const Sky = () => {
     const skyRef = useRef(null);
     useFrame(() => {
-        if(skyRef.current){
+        if(skyRef.current && IS_HOME_CANVAS_ANIMATION){
             skyRef.current.rotation.z += 0.001;
         }
     });

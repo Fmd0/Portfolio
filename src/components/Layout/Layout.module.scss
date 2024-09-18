@@ -2,13 +2,13 @@
 
 .homeEnter, .contactEnter, .projectsEnter {
   position: relative;
-  z-index: 10;
+  z-index: 20;
   transform: translate3d(100%,0,0) skew(0deg, 0deg);
   will-change: transform;
 }
 
 .homeNormal {
-  & > div > * {
+  & > div > *:not(:first-child) {
     opacity: 0;
     transform: translate3d(100px, 0, 0);
     animation: homeAppearAnimation 1s ease forwards;

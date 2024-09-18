@@ -1,11 +1,11 @@
 import classes from "./Home.module.scss";
 import HoverAnimationLink from "../../components/HoverAnimationLink/HoverAnimationLink.tsx";
-import MainCanvas from "../../3D/MainCanvas.tsx";
+import HomeCanvas from "../../3D/HomeCanvas.tsx";
 
 const Home = () => {
     return (
         <div className={classes["container"]}>
-            <MainCanvas/>
+            <HomeCanvas/>
             <p className={classes["container__header"]}>Hi, I'm Chen Nan</p>
             <p className={classes["container__text"]}>
                 I'm a skilled fullstack developer with experience in React, Next.js, express, and Three.js.
@@ -13,7 +13,9 @@ const Home = () => {
                 today.
             </p>
             <div className={classes['container__straightLine']}></div>
-            <HoverAnimationLink pathname='projects' textName="VIEW MY WORK"/>
+            <div className="relative bottom-8">
+                <HoverAnimationLink pathname='projects' textName="VIEW MY WORK"/>
+            </div>
         </div>
     )
 }

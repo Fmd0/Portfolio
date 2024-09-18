@@ -4,6 +4,12 @@ import {CSSTransition, TransitionGroup} from "react-transition-group";
 import {createRef} from "react";
 import classes from "./Layout.module.scss";
 import {gsap} from "gsap"
+import {
+    prePageLocation,
+    setIsHomeCanvasAnimationFalse,
+    setIsHomeCanvasAnimationTrue,
+    setPrePageLocation
+} from "../../utils/constants.ts";
 
 
 const nodeRefMap =  {
@@ -24,8 +30,22 @@ const windowDegree = Math.atan(window.innerWidth/window.innerHeight/3.5)/Math.PI
 const handleEnter = (isAppearing: boolean) => {
 
     if(isAppearing) {
+        // for appear and page have threeJS animation, do one judge and set pre location
+        if(window.location.pathname === "/") {
+            setTimeout(setIsHomeCanvasAnimationTrue, 1200)
+        }
+        setPrePageLocation(window.location.pathname);
         return;
     }
+
+    // for page have threeJS animation, do two judges and set pre location
+    if(prePageLocation === "/") {
+        setIsHomeCanvasAnimationFalse();
+    }
+    if(window.location.pathname === "/") {
+        setTimeout(setIsHomeCanvasAnimationTrue, 2300)
+    }
+    setPrePageLocation(window.location.pathname);
 
     if(tween) {
         tween.kill();
@@ -38,9 +58,6 @@ const handleEnter = (isAppearing: boolean) => {
 
     if(window.location.pathname === "/") {
         (nodeRefMap["/"].current as HTMLDivElement).className += " "+classes['homeNormal'];
-        // setTimeout(() => {
-        //     (nodeRefMap["/"].current as HTMLDivElement).className = (nodeRefMap["/"].current as HTMLDivElement).className.replace(classes['homeNormal'], "")
-        // }, 2500)
     }
 
     setTimeout(() => {

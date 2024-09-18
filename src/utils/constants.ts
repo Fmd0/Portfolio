@@ -10,7 +10,28 @@ const Colors = {
     lightgreen:0x629265,
 };
 
+let IS_HOME_CANVAS_ANIMATION = false;
+
+const setIsHomeCanvasAnimationTrue = () => {
+    IS_HOME_CANVAS_ANIMATION = true;
+}
+
+const setIsHomeCanvasAnimationFalse = () => {
+    IS_HOME_CANVAS_ANIMATION = false;
+}
+
+let prePageLocation = "/";
+
+const setPrePageLocation = (location: string) => {
+    prePageLocation = location;
+}
+
 
 export {
     Colors,
+    IS_HOME_CANVAS_ANIMATION,
+    setIsHomeCanvasAnimationTrue,
+    setIsHomeCanvasAnimationFalse,
+    prePageLocation,
+    setPrePageLocation,
 }

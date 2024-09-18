@@ -1,10 +1,10 @@
 import {Canvas} from '@react-three/fiber'
 import Land from "./Land.tsx";
 import Forest from "./Forest.tsx";
-import ConfigCanvas from "./ConfigCanvas.tsx";
+import HomeCanvasConfig from "./HomeCanvasConfig.tsx";
 import Sky from "./Sky.tsx";
 
-const MainCanvas = () => {
+const HomeCanvas = () => {
     return (
         <div className="absolute z-[-1] inset-0 w-screen h-screen">
             <Canvas shadows={true}
@@ -16,7 +16,7 @@ const MainCanvas = () => {
                         far: 1000
                     }}
             >
-                <ConfigCanvas />
+                <HomeCanvasConfig />
                 <hemisphereLight skyColor={0xFFFFFF}  groundColor={0x888888} intensity={0.5}  />
                 <directionalLight color={0xFFFFFF} intensity={1.25} position={[400, 800, 800]} castShadow={true}
                                   shadow-camera-left={-1000}
@@ -37,4 +37,4 @@ const MainCanvas = () => {
     )
 }
 
-export default MainCanvas;
+export default HomeCanvas;

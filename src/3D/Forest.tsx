@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import {Colors} from "../utils/constants.ts";
+import {Colors, IS_HOME_CANVAS_ANIMATION} from "../utils/constants.ts";
 import {useRef} from "react";
 import {useFrame} from "@react-three/fiber";
 
@@ -52,7 +52,7 @@ const Tree = ({scale, position, rotation}: {
 const Forest = () => {
     const forestRef = useRef(null);
     useFrame(() => {
-        if(forestRef.current){
+        if(forestRef.current && IS_HOME_CANVAS_ANIMATION){
             forestRef.current.rotation.z += 0.001;
         }
     });
@@ -66,8 +66,8 @@ const Forest = () => {
                             <Tree key={secondIndex}
                                   scale={[randomScale, randomScale, randomScale]}
                                   position={[
-                                      610*Math.sin(randomAngle) - Math.sin(randomAngle)*(1-randomScale)*15,
-                                      610*Math.cos(randomAngle) - Math.cos(randomAngle)*(1-randomScale)*15,
+                                      610*Math.sin(randomAngle) - Math.sin(randomAngle)*4,
+                                      610*Math.cos(randomAngle) - Math.cos(randomAngle)*4,
                                       randomZIndexArray[firstIndex][secondIndex]
                                   ]}
                                   rotation={[0, 0, -randomAngle]}
