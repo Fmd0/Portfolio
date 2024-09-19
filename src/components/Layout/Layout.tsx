@@ -26,6 +26,10 @@ const cssClassMap =  {
 
 let tween = null;
 const windowDegree = Math.atan(window.innerWidth/window.innerHeight/3.5)/Math.PI * 180;
+// let requestAnimationFrameId = 0;
+const easeExpoInOut = gsap.parseEase("expo.inOut");
+const easePower3InOut = gsap.parseEase("power3.inOut");
+
 
 const handleEnter = (isAppearing: boolean) => {
 
@@ -50,6 +54,7 @@ const handleEnter = (isAppearing: boolean) => {
     if(tween) {
         tween.kill();
     }
+
     const htmlElement = nodeRefMap[location.pathname].current as HTMLDivElement;
     let position = 0;
     let degree = -windowDegree;
@@ -65,9 +70,9 @@ const handleEnter = (isAppearing: boolean) => {
             {
                 onUpdate: function () {
                     progress = this.progress();
-                    position = gsap.utils.interpolate(0, 100, gsap.parseEase("expo.inOut")(progress));
-                    degree = gsap.utils.interpolate(-windowDegree, windowDegree, gsap.parseEase("power3.inOut")(progress));
-                    htmlElement.style.transform = `translate3d(${100-position}%,0,0) skew(${windowDegree-Math.abs(degree)}deg, 0deg)`;
+                    position = gsap.utils.interpolate(0, 100, easeExpoInOut(progress));
+                    degree = gsap.utils.interpolate(-windowDegree, windowDegree, easePower3InOut(progress));
+                    htmlElement.style.transform = `translate3d(${100 - position}%,0,0) skew(${windowDegree - Math.abs(degree)}deg, 0deg)`;
                 },
                 duration: 1.2,
             }

@@ -22,7 +22,7 @@ const Cloud = ({rotation}: {
     rotation: number[],
 }) => {
     const cloudHeight = Math.random()*400+800;
-    const cloudDepth = -250-Math.random()*200;
+    const cloudDepth = -200-Math.random()*200;
 
     return (
         <group rotation={rotation}>

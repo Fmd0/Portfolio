@@ -26,6 +26,13 @@ const setPrePageLocation = (location: string) => {
     prePageLocation = location;
 }
 
+const projectDataList = [
+    {
+        image: "/src/assets/img.png",
+        title: "BOUCHERON",
+        description: "Do you have what it takes to become an icon?",
+    }
+]
 
 export {
     Colors,
@@ -34,4 +41,5 @@ export {
     setIsHomeCanvasAnimationFalse,
     prePageLocation,
     setPrePageLocation,
+    projectDataList,
 }

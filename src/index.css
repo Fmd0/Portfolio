@@ -3,13 +3,18 @@
 @tailwind utilities;
 
 
-@layer base {
-    @font-face {
-        font-family: 'Mnn';
-        font-weight: normal;
-        font-style: normal;
-        src: url('assets/Mnm.woff') format('woff');
-    }
+@font-face {
+    font-family: 'Mnn';
+    font-weight: normal;
+    font-style: normal;
+    src: url('./assets/Mnm.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Bodoni Book';
+    font-weight: normal;
+    font-style: normal;
+    src: url('./assets/BodoniSevITC-Book.woff') format('woff');
 }
 
 

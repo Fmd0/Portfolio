@@ -66,8 +66,8 @@ const Forest = () => {
                             <Tree key={secondIndex}
                                   scale={[randomScale, randomScale, randomScale]}
                                   position={[
-                                      610*Math.sin(randomAngle) - Math.sin(randomAngle)*4,
-                                      610*Math.cos(randomAngle) - Math.cos(randomAngle)*4,
+                                      610*Math.sin(randomAngle) - Math.sin(randomAngle)*6,
+                                      610*Math.cos(randomAngle) - Math.cos(randomAngle)*6,
                                       randomZIndexArray[firstIndex][secondIndex]
                                   ]}
                                   rotation={[0, 0, -randomAngle]}

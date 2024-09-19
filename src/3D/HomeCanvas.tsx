@@ -3,6 +3,7 @@ import Land from "./Land.tsx";
 import Forest from "./Forest.tsx";
 import HomeCanvasConfig from "./HomeCanvasConfig.tsx";
 import Sky from "./Sky.tsx";
+import Flowers from "./Flowers.tsx";
 
 const HomeCanvas = () => {
     return (
@@ -31,6 +32,7 @@ const HomeCanvas = () => {
                 <Land />
                 <Sky />
                 <Forest />
+                <Flowers />
             </Canvas>
 
         </div>
