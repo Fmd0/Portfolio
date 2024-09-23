@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import {useRef} from "react";
 import {useFrame} from "@react-three/fiber";
-import {IS_HOME_CANVAS_ANIMATION} from "../utils/constants.ts";
+import {IS_HOME_CANVAS_ANIMATION} from "../../utils/constants.ts";
 
 
 

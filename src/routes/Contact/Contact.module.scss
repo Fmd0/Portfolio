@@ -1,0 +1,60 @@
+
+.container {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #25394A;
+    color: white;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+}
+
+.container__top {
+    user-select: none;
+}
+
+.container__top__firstLine {
+    font-family: "Bodoni Book", sans-serif;
+    font-style: normal;
+    font-size: 64px;
+    line-height: 1;
+}
+
+
+.container__top__secondLine {
+    font-family: "Bodoni Book", sans-serif;
+    font-style: italic;
+    font-size: 72px;
+    color: yellow;
+    line-height: 1;
+    letter-spacing: 4px;
+}
+
+.container__bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+}
+
+.container__paragraph {
+    font-family: "Mnn", sans-serif;
+    font-size: 14px;
+}
+
+.container__bottom__iconList {
+    margin-top: 8px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}

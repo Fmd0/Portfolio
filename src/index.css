@@ -17,23 +17,14 @@
     src: url('./assets/BodoniSevITC-Book.woff') format('woff');
 }
 
+@font-face {
+    font-family: 'Bodoni Book';
+    font-weight: normal;
+    font-style: italic;
+    src: url('./assets/BodoniSevITC-BookItal.woff') format('woff');
+}
+
+
 
 @layer utilities {
-    .pages-enter {
-        transform: translate(100%, 0);
-    }
-
-    .pages-enter-active {
-        transform: translate(0, 0);
-        transition: transform 3s cubic-bezier(0.19, 1, 0.22, 1);
-    }
-
-    .pages-exit {
-        transform: translate(0, 0);
-    }
-
-    .pages-exit-active {
-        transform: translate(-100%, 0);
-        transition: transform 3s cubic-bezier(0.19, 1, 0.22, 1);
-    }
 }

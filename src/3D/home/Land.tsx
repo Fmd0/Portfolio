@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import {Colors} from "../utils/constants.ts";
+import {Colors} from "../../utils/constants.ts";
 
 const landGeometry = new THREE.CylinderGeometry(600, 600, 800);
 const landMaterial = new THREE.MeshPhongMaterial({color: Colors.lightgreen})

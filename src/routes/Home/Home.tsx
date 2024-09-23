@@ -1,6 +1,6 @@
 import classes from "./Home.module.scss";
 import HoverAnimationLink from "../../components/HoverAnimationLink/HoverAnimationLink.tsx";
-import HomeCanvas from "../../3D/HomeCanvas.tsx";
+import HomeCanvas from "../../3D/home/HomeCanvas.tsx";
 
 const Home = () => {
     return (
