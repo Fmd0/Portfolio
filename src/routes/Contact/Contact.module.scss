@@ -4,7 +4,7 @@
     inset: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #25394A;
+    //background-color: #25394A;
     color: white;
     text-align: center;
 
@@ -17,6 +17,8 @@
 
 .container__top {
     user-select: none;
+    position: relative;
+    top: -32px;
 }
 
 .container__top__firstLine {
@@ -31,7 +33,7 @@
     font-family: "Bodoni Book", sans-serif;
     font-style: italic;
     font-size: 72px;
-    color: yellow;
+    color: #ffc856;
     line-height: 1;
     letter-spacing: 4px;
 }
@@ -42,6 +44,9 @@
     align-items: center;
     justify-content: center;
     gap: 2px;
+
+    position: relative;
+    top: -32px;
 }
 
 .container__paragraph {
@@ -50,7 +55,7 @@
 }
 
 .container__bottom__iconList {
-    margin-top: 8px;
+    margin-top: 16px;
 
     display: flex;
     flex-direction: row;

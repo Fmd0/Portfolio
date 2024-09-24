@@ -5,7 +5,7 @@ import HomeCanvas from "../../3D/home/HomeCanvas.tsx";
 const Home = () => {
     return (
         <div className={classes["container"]}>
-            <HomeCanvas/>
+            <HomeCanvas />
             <p className={classes["container__header"]}>Hi, I'm Chen Nan</p>
             <p className={classes["container__text"]}>
                 I'm a skilled fullstack developer with experience in React, Next.js, express, and Three.js.

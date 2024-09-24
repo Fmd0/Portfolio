@@ -5,7 +5,7 @@ import {createRef} from "react";
 import classes from "./Layout.module.scss";
 import {gsap} from "gsap"
 import {
-    prePageLocation,
+    prePageLocation, setIsContactCanvasAnimationFalse, setIsContactCanvasAnimationTrue,
     setIsHomeCanvasAnimationFalse,
     setIsHomeCanvasAnimationTrue,
     setPrePageLocation
@@ -38,6 +38,9 @@ const handleEnter = (isAppearing: boolean) => {
         if(window.location.pathname === "/") {
             setTimeout(setIsHomeCanvasAnimationTrue, 1200)
         }
+        else if(window.location.pathname === "/contact") {
+            setTimeout(setIsContactCanvasAnimationTrue, 1200)
+        }
         setPrePageLocation(window.location.pathname);
         return;
     }
@@ -46,8 +49,15 @@ const handleEnter = (isAppearing: boolean) => {
     if(prePageLocation === "/") {
         setIsHomeCanvasAnimationFalse();
     }
+    else if(prePageLocation === "/contact") {
+        setIsContactCanvasAnimationFalse();
+    }
+
     if(window.location.pathname === "/") {
         setTimeout(setIsHomeCanvasAnimationTrue, 2300)
+    }
+    else if(window.location.pathname === "/contact") {
+        setTimeout(setIsContactCanvasAnimationTrue, 2300)
     }
     setPrePageLocation(window.location.pathname);
 
@@ -64,6 +74,10 @@ const handleEnter = (isAppearing: boolean) => {
     if(window.location.pathname === "/") {
         (nodeRefMap["/"].current as HTMLDivElement).className += " "+classes['homeNormal'];
     }
+    else if(window.location.pathname === "/contact") {
+        (nodeRefMap["/contact"].current as HTMLDivElement).className += " "+classes['contactNormal'];
+    }
+
 
     setTimeout(() => {
         tween = gsap.to({},

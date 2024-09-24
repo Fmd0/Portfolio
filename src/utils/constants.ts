@@ -20,19 +20,38 @@ const setIsHomeCanvasAnimationFalse = () => {
     IS_HOME_CANVAS_ANIMATION = false;
 }
 
+let IS_CONTACT_CANVAS_ANIMATION = false;
+
+const setIsContactCanvasAnimationTrue = () => {
+    IS_CONTACT_CANVAS_ANIMATION = true;
+}
+
+const setIsContactCanvasAnimationFalse = () => {
+    IS_CONTACT_CANVAS_ANIMATION = false;
+}
+
+
 let prePageLocation = "/";
 
 const setPrePageLocation = (location: string) => {
     prePageLocation = location;
 }
 
-const projectDataList = [
-    {
+const projectDataList = {
+    "test": {
         image: "/src/assets/img.png",
         title: "BOUCHERON",
         description: "Do you have what it takes to become an icon?",
+    },
+    "shop": {
+        image: "/src/assets/img.png",
+        title: "Shop",
+        description: "Do you have what it takes to become an icon?",
     }
-]
+}
+
+const BallColors = [0xF5C97B, 0xA8BEDF];
+
 
 export {
     Colors,
@@ -42,4 +61,8 @@ export {
     prePageLocation,
     setPrePageLocation,
     projectDataList,
+    BallColors,
+    IS_CONTACT_CANVAS_ANIMATION,
+    setIsContactCanvasAnimationTrue,
+    setIsContactCanvasAnimationFalse
 }

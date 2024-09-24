@@ -7,7 +7,7 @@
   will-change: transform;
 }
 
-.homeNormal {
+.homeNormal, .contactNormal {
   & > div > *:not(:first-child) {
     opacity: 0;
     transform: translate3d(100px, 0, 0);
@@ -21,7 +21,7 @@
   }
 }
 
-.homeExit {
+.homeExit, .contactExit {
   & > div > *:not(:first-child) {
     transform: translate3d(0, 0, 0);
     opacity: 1;
@@ -29,7 +29,7 @@
   }
 }
 
-.homeAppear {
+.homeAppear, .contactAppear {
     & > div > *:not(:first-child) {
     opacity: 0;
     transform: translate3d(100px, 0, 0);
@@ -41,7 +41,6 @@
       animation-delay: 0.08s * $i;
     }
   }
-
 }
 
 
