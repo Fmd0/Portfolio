@@ -16,12 +16,14 @@ const nodeRefMap =  {
     "/": createRef(),
     "/contact": createRef(),
     "/projects": createRef(),
+    "/project": createRef(),
 }
 
 const cssClassMap =  {
     "/": "home",
     "/contact": "contact",
     "/projects": "projects",
+    "/project": "project",
 }
 
 let tween = null;
@@ -32,16 +34,20 @@ const easePower3InOut = gsap.parseEase("power3.inOut");
 
 
 const handleEnter = (isAppearing: boolean) => {
+    let pathname = window.location.pathname;
+    if(pathname.startsWith("/project/")){
+        pathname = "/project";
+    }
 
     if(isAppearing) {
         // for appear and page have threeJS animation, do one judge and set pre location
-        if(window.location.pathname === "/") {
+        if(pathname === "/") {
             setTimeout(setIsHomeCanvasAnimationTrue, 1200)
         }
-        else if(window.location.pathname === "/contact") {
+        else if(pathname === "/contact") {
             setTimeout(setIsContactCanvasAnimationTrue, 1200)
         }
-        setPrePageLocation(window.location.pathname);
+        setPrePageLocation(pathname);
         return;
     }
 
@@ -53,28 +59,28 @@ const handleEnter = (isAppearing: boolean) => {
         setIsContactCanvasAnimationFalse();
     }
 
-    if(window.location.pathname === "/") {
+    if(pathname === "/") {
         setTimeout(setIsHomeCanvasAnimationTrue, 2300)
     }
-    else if(window.location.pathname === "/contact") {
+    else if(pathname === "/contact") {
         setTimeout(setIsContactCanvasAnimationTrue, 2300)
     }
-    setPrePageLocation(window.location.pathname);
+    setPrePageLocation(pathname);
 
     if(tween) {
         tween.kill();
     }
 
-    const htmlElement = nodeRefMap[location.pathname].current as HTMLDivElement;
+    const htmlElement = nodeRefMap[pathname].current as HTMLDivElement;
     let position = 0;
     let degree = -windowDegree;
     let progress = 0;
+    // console.log(htmlElement);
 
-
-    if(window.location.pathname === "/") {
+    if(pathname === "/") {
         (nodeRefMap["/"].current as HTMLDivElement).className += " "+classes['homeNormal'];
     }
-    else if(window.location.pathname === "/contact") {
+    else if(pathname === "/contact") {
         (nodeRefMap["/contact"].current as HTMLDivElement).className += " "+classes['contactNormal'];
     }
 
@@ -96,25 +102,28 @@ const handleEnter = (isAppearing: boolean) => {
 
 const Layout = () => {
     const currentOutlet = useOutlet();
-
+    let pathname = window.location.pathname;
+    if(pathname.startsWith("/project/")){
+        pathname = "/project";
+    }
     return (
         <div>
             <NavBar />
             <TransitionGroup>
-                <CSSTransition key={location.pathname} nodeRef={nodeRefMap[location.pathname]} timeout={2000}
+                <CSSTransition key={pathname} nodeRef={nodeRefMap[pathname]} timeout={2000}
                                classNames={{
-                                   enter: classes[`${cssClassMap[window.location.pathname]}Enter`],
-                                   enterDone: classes[`${cssClassMap[window.location.pathname]}EnterDone`],
-                                   exit: classes[`${cssClassMap[window.location.pathname]}Exit`],
-                                   exitActive: classes[`${cssClassMap[window.location.pathname]}ExitActive`],
-                                   appear: classes[`${cssClassMap[window.location.pathname]}Appear`],
-                                   appearDone: classes[`${cssClassMap[window.location.pathname]}AppearDone`],
+                                   enter: classes[`${cssClassMap[pathname]}Enter`],
+                                   enterDone: classes[`${cssClassMap[pathname]}EnterDone`],
+                                   exit: classes[`${cssClassMap[pathname]}Exit`],
+                                   exitActive: classes[`${cssClassMap[pathname]}ExitActive`],
+                                   appear: classes[`${cssClassMap[pathname]}Appear`],
+                                   appearDone: classes[`${cssClassMap[pathname]}AppearDone`],
                                }}
                                onEnter={handleEnter}
                                appear={true}
                                unmountOnExit
                 >
-                    <div ref={nodeRefMap[location.pathname]}>
+                    <div ref={nodeRefMap[pathname]}>
                         {currentOutlet}
                     </div>
                 </CSSTransition>

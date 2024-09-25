@@ -1,0 +1,89 @@
+
+.container {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  color: white;
+  background-color: rgb(107 114 128);
+}
+
+.firstContainer {
+  position: absolute;
+  inset: 0;
+
+  width: 100vw;
+  height: 100vh;
+  padding: 36px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 96px;
+}
+
+.firstContainerMain {
+
+  position: relative;
+  top: -48px;
+
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 64px;
+}
+
+.gradientText0, .gradientText1, .gradientText2 {
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  letter-spacing: 1px;
+  font-size: 18px;
+}
+
+.gradientText0 {
+  //blue
+  background: #56ccf2;
+  background: -webkit-linear-gradient(
+                  to top,
+                  #2f80ed,
+                  #56ccf2
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+                  to top,
+                  #2f80ed,
+                  #56ccf2
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradientText1 {
+  background: #11998e; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+                  to top,
+                  #11998e,
+                  #38ef7d
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+                  to top,
+                  #11998e,
+                  #38ef7d
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradientText2 {
+  background: #ec008c; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+                  to top,
+                  #ec008c,
+                  #fc6767
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+                  to top,
+                  #ec008c,
+                  #fc6767
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

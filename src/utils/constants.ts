@@ -37,20 +37,43 @@ const setPrePageLocation = (location: string) => {
     prePageLocation = location;
 }
 
-const projectDataList = {
+const BallColors = [0xF5C97B, 0xA8BEDF];
+
+const projectDataMap = {
     "test": {
-        image: "/src/assets/img.png",
+        images: ["/src/assets/img.png"],
         title: "BOUCHERON",
         description: "Do you have what it takes to become an icon?",
+        gitHubRepository: "https://github.com/Fmd0/Shop.app-frontend",
+        liveDemo: "",
+        technologies: [],
     },
     "shop": {
-        image: "/src/assets/img.png",
+        images: [
+            "/src/assets/projectImage/shop0.jpg",
+            "/src/assets/projectImage/shop1.jpg",
+            "/src/assets/projectImage/shop2.jpg",
+        ],
         title: "Shop",
-        description: "Do you have what it takes to become an icon?",
+        description: "A complete full-stack e-commerce project, featuring a fully responsive frontend store and a backend administration system. This application leverages the latest technologies such as Vite for fast builds and Tailwind CSS for custom UI styling.",
+        gitHubRepository: "https://github.com/Fmd0/Shop.app-frontend",
+        liveDemo: "https://fmd0.github.io/pages/shop/",
+        technologies: ["react", "mongodb", "tailwindcss"],
+        detailTitle: "This is a complete clone of shop.app, consisting of three parts",
+        detailDescription: "This is the shop frontend part of the project. It is fully responsive and quite comprehensive, including seven pages: the home page, market page, product page, search page, cart page, recently viewed page, and favorites page.",
+        features: [
+            "Typescript, Vite Setup",
+            "JWT authentication",
+            "SWR, data fetching and mutation",
+            "Zustand state management",
+            "Tailwind CSS for customization of UI",
+            "Full responsiveness on all pages",
+            "All UI in-house, no third-party component libraries",
+
+        ]
     }
 }
 
-const BallColors = [0xF5C97B, 0xA8BEDF];
 
 
 export {
@@ -60,7 +83,7 @@ export {
     setIsHomeCanvasAnimationFalse,
     prePageLocation,
     setPrePageLocation,
-    projectDataList,
+    projectDataMap,
     BallColors,
     IS_CONTACT_CANVAS_ANIMATION,
     setIsContactCanvasAnimationTrue,
