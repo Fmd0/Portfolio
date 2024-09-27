@@ -20,14 +20,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 96px;
+  //gap: 96px;
 }
 
 .firstContainerMain {
-
-  position: relative;
-  top: -48px;
-
   display: grid;
   grid-template-columns: 2fr 3fr;
   gap: 64px;
@@ -86,4 +82,100 @@
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.firstContainer--exiting > .firstContainer__blur {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0000004a;
+  backdrop-filter: blur(12px);
+
+  transition: backdrop-filter 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+
+.secondContainer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  //background-color: #0000004a;
+  //backdrop-filter: blur(8px);
+  user-select: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.secondContainer--exitedBottom {
+  opacity: 0;
+  transform: translate3d(0, 200px, 0) scaleY(1.2);
+  transition: opacity 0.6s cubic-bezier(0.19, 1, 0.22, 1),transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  pointer-events: none;
+}
+
+.secondContainer--normal {
+  transition: transform 2s cubic-bezier(0.19, 1, 0.22, 1), opacity 1s cubic-bezier(0.19, 1, 0.22, 1);
+  transition-delay: 0.3s;
+}
+
+.firstContainer--exitedTop, .secondContainer--exitedTop {
+  opacity: 0;
+  transform: translate3d(0, -200px, 0) scaleY(1.2);
+  transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1),transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  pointer-events: none;
+}
+
+
+.secondContainerMain {
+  max-width: 1000px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 36px;
+}
+
+.secondContainerMain__Title {
+  font-family: "Bodoni Book", sans-serif;
+  font-size: 64px;
+}
+
+.secondContainerMain__Paragraph {
+  font-family: Mnn, sans-serif;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+}
+
+.subContainer3 {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+
+  display: grid;
+  place-items: center;
+}
+
+.subContainer3--exitedTop {
+  opacity: 0;
+  transform: translate3d(0, -200px, 0);
+  transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1),transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  pointer-events: none;
+}
+
+.subContainer3--exitedBottom {
+  opacity: 0;
+  transform: translate3d(0, 200px, 0);
+  transition: opacity 0.6s cubic-bezier(0.19, 1, 0.22, 1),transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  pointer-events: none;
+}
+
+.subContainer3--normal {
+  transition: transform 2s cubic-bezier(0.19, 1, 0.22, 1), opacity 1s cubic-bezier(0.19, 1, 0.22, 1);
 }

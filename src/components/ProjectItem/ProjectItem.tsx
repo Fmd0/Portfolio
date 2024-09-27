@@ -2,9 +2,9 @@ import classes from "./ProjectItem.module.scss";
 import {Link} from "react-router-dom";
 
 
-const ProjectItem = ({linkKey, images, title, description}: {
+const ProjectItem = ({linkKey, headerImage, title, description}: {
     linkKey: string;
-    images: string[];
+    headerImage: string;
     title: string;
     description: string;
 }) => {
@@ -12,7 +12,7 @@ const ProjectItem = ({linkKey, images, title, description}: {
         <Link to={`/project/${linkKey}`}>
             <div className={classes['projectItem']}>
                 <div className={classes['projectItem__image']}>
-                    <img src={images[0]} alt="ProjectItem" className="w-full h-full object-cover scale-125"/>
+                    <img src={headerImage} alt="ProjectItem" className="w-full h-full object-cover scale-125"/>
                 </div>
                 <p className="font-['Bodoni_Book'] text-[26px] tracking-[1px] font-light">{title}</p>
                 <div className="w-10 h-[1px] bg-white"></div>

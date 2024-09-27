@@ -49,10 +49,19 @@ const projectDataMap = {
         technologies: [],
     },
     "shop": {
-        images: [
-            "/src/assets/projectImage/shop0.jpg",
-            "/src/assets/projectImage/shop1.jpg",
-            "/src/assets/projectImage/shop2.jpg",
+        headerImage: "/src/assets/projectImage/shop0.jpg",
+        gallery: [
+            {
+                image:  "/src/assets/projectImage/shop1.jpg",
+                backgroundColor: "#393231",
+                borderColor: "rgba(0,0,0,0.3)"
+            },
+            {
+                image:  "/src/assets/projectImage/shop2.jpg",
+            },
+            {
+                image:  "/src/assets/projectImage/shop3.jpg",
+            }
         ],
         title: "Shop",
         description: "A complete full-stack e-commerce project, featuring a fully responsive frontend store and a backend administration system. This application leverages the latest technologies such as Vite for fast builds and Tailwind CSS for custom UI styling.",
