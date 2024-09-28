@@ -53,14 +53,15 @@ const projectDataMap = {
         gallery: [
             {
                 image:  "/src/assets/projectImage/shop1.jpg",
-                backgroundColor: "#393231",
-                borderColor: "rgba(0,0,0,0.3)"
+                backgroundColor: "rgb(230,74,113)"
             },
             {
                 image:  "/src/assets/projectImage/shop2.jpg",
+                backgroundColor: "rgb(42,194,144)"
             },
             {
                 image:  "/src/assets/projectImage/shop3.jpg",
+                backgroundColor: "rgb(250,205,35)"
             }
         ],
         title: "Shop",

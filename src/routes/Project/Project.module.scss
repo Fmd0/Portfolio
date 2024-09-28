@@ -20,13 +20,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  //gap: 96px;
 }
 
 .firstContainerMain {
   display: grid;
   grid-template-columns: 2fr 3fr;
   gap: 64px;
+
+  transform: translate3d(0, -48px, 0);
 }
 
 .gradientText0, .gradientText1, .gradientText2 {
@@ -152,7 +153,7 @@
   gap: 64px;
 }
 
-.subContainer3 {
+.subContainer {
   position: absolute;
   inset: 0;
   width: 100vw;
@@ -160,22 +161,24 @@
 
   display: grid;
   place-items: center;
+  user-select: none;
 }
 
-.subContainer3--exitedTop {
-  opacity: 0;
-  transform: translate3d(0, -200px, 0);
-  transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1),transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+.subContainer--exitedTop {
+  transform: translate3d(0, -100%, 0);
+  transition: transform 1.3s cubic-bezier(0.19, 1, 0.22, 1);
   pointer-events: none;
+  //transition-delay: 0.15s;
 }
 
-.subContainer3--exitedBottom {
-  opacity: 0;
-  transform: translate3d(0, 200px, 0);
-  transition: opacity 0.6s cubic-bezier(0.19, 1, 0.22, 1),transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+.subContainer--exitedBottom {
+  transform: translate3d(0, 100%, 0);
+  transition: transform 1.3s cubic-bezier(0.19, 1, 0.22, 1);
   pointer-events: none;
+  //transition-delay: 0.15s;
 }
 
-.subContainer3--normal {
-  transition: transform 2s cubic-bezier(0.19, 1, 0.22, 1), opacity 1s cubic-bezier(0.19, 1, 0.22, 1);
+.subContainer--normal {
+  transform: translate3d(0, 0, 0);
+  transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1);
 }

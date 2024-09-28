@@ -8,7 +8,7 @@ let prePointerX = 0;
 const maxTranslateX = window.innerWidth*(1/3-3/100);
 const minTranslateX = 0;
 
-const ProjectsScrollBar = () => {
+const ProjectsBottomScrollBar = () => {
 
     const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
         pointerHadDown = true;
@@ -82,4 +82,4 @@ const ProjectsScrollBar = () => {
     )
 }
 
-export default ProjectsScrollBar;
+export default ProjectsBottomScrollBar;

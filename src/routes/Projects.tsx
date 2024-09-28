@@ -1,6 +1,6 @@
 import {projectDataMap} from "../utils/constants.ts";
 import ProjectItem from "../components/ProjectItem/ProjectItem.tsx";
-import ProjectsScrollBar from "../components/ProjectsScrollBar.tsx";
+import ProjectsBottomScrollBar from "../components/ProjectsBottomScrollBar.tsx";
 
 const Projects = () => {
     return (
@@ -12,7 +12,7 @@ const Projects = () => {
                     ))
                 }
             </div>
-            <ProjectsScrollBar />
+            <ProjectsBottomScrollBar />
         </div>
     )
 }
