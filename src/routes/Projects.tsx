@@ -1,6 +1,6 @@
 import {projectDataMap} from "../utils/constants.ts";
 import ProjectItem from "../components/ProjectItem/ProjectItem.tsx";
-import ProjectsBottomScrollBar from "../components/ProjectsBottomScrollBar.tsx";
+import ProjectsBottomScrollBar from "../components/ProjectsBottomScrollBar/ProjectsBottomScrollBar.tsx";
 
 const Projects = () => {
     return (

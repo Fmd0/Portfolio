@@ -1,3 +1,12 @@
+@use 'sass:math';
+
+
+:root {
+    --hover-translate: 5px;
+    --transform-origin-first: 100%;
+    --transform-origin-second: 50%;
+    --transition-time-ratio: 1.2;
+}
 
 .projectItem {
     position: relative;
@@ -10,15 +19,62 @@
     transition: 500ms;
 }
 
-.projectItem:hover {
-    transform: scale(1.1);
+.projectItem__imageContainer {
+    position: relative;
+    cursor: pointer;
+    width: 400px;
+    height: 225px;
+    //overflow: hidden;
 }
 
 .projectItem__image {
-    cursor: pointer;
-    width: 350px;
-    height: 200px;
-    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 10;
+
+    transform-origin: var(--transform-origin-first) var(--transform-origin-second);
+    transition: calc(0.5s/var(--transition-time-ratio)) ease;
+}
+
+.projectItem__imageContainerBg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    transform-origin: var(--transform-origin-first) var(--transform-origin-second);
+
+    @for $i from 1 through 6 {
+        &:nth-child(#{$i}) {
+            z-index: 10-$i;
+            transition: calc((0.6s - 0.1s*($i))/var(--transition-time-ratio)) calc(0.1s*($i - 1)/var(--transition-time-ratio)) ease;
+        }
+    }
+}
+
+.projectItem__title {
+    font-family: 'Bodoni Book', sans-serif;
+    font-size: 26px;
+    letter-spacing: 1px;
+
+    transform-origin: var(--transform-origin-first) var(--transform-origin-second);
+    transition: calc(0.5s/var(--transition-time-ratio)) ease;
+}
+
+.projectItem__underscore {
+    height: 1px;
+    background-color: transparent;
+
+    transform-origin: var(--transform-origin-first) var(--transform-origin-second);
+    transition: calc(0.5s/var(--transition-time-ratio)) ease;
+}
+
+.projectItem__underscoreInner {
+    width: 40px;
+    height: 1px;
+    background-color: white;
 }
 
 .projectItem__description {
@@ -26,15 +82,31 @@
     position: absolute;
     left: 0;
     top: 100%;
-    font-family: Mnn;
-    font-size: 11px;
+    font-family: Mnn , sans-serif;
+    font-size: 12px;
 
     opacity: 0;
-    transform: translateY(40px) scaleY(1.3);
-    transition: transform 0.5s cubic-bezier(0.55, 0, 0.1, 1),opacity 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+    transform-origin: var(--transform-origin-first) var(--transform-origin-second);
+    transform: translate3d(0,40px,0) scale(1);
+    transition: transform 0.5s cubic-bezier(0.55, 0, 0.1, 1), opacity 0.5s cubic-bezier(0.55, 0, 0.1, 1);
 }
 
-.projectItem__image:hover ~ .projectItem__description {
+.projectItem__imageContainer:hover > .projectItem__image {
+    transform: translate3d(calc(-5 * var(--hover-translate)), 0, 0) scale(1.05);
+}
+
+.projectItem__imageContainer:hover > .projectItem__imageContainerBg {
+    @for $i from 1 through 6 {
+        &:nth-child(#{$i}) {
+            transform: translate3d(calc((-6 + $i)*var(--hover-translate)),0,0) scale(1.05-(($i)-1)*0.01);
+            transition: calc((0.6s - 0.1s*($i))/var(--transition-time-ratio)) ease;
+        }
+    }
+}
+
+.projectItem__imageContainer:hover ~ .projectItem__title,
+.projectItem__imageContainer:hover ~ .projectItem__underscore,
+.projectItem__imageContainer:hover ~ .projectItem__description {
     opacity: 1;
-    transform: translateY(0) scaleY(1);
+    transform: translate3d(calc(-5 * var(--hover-translate)), 0, 0) scale(1.05);
 }

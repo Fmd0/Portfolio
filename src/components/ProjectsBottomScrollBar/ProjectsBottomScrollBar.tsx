@@ -1,5 +1,6 @@
 import * as React from "react";
 import {useEffect, useRef} from "react";
+import classes from "./ProjectsBottomScrollBar.module.scss";
 
 
 let pointerHadDown = false;
@@ -13,9 +14,11 @@ const ProjectsBottomScrollBar = () => {
     const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
         pointerHadDown = true;
         prePointerX = event.clientX;
-        transformElement.current?.children[0].classList.add("bg-white", "scale-y-[4]");
-        document.body.style.cursor = "grabbing";
+        transformElement.current?.children[0].classList.add(classes['container__barBodyInner--hover']);
+        transformElement.current?.classList.remove(classes['container__barBodyCursor']);
+        document.body.style.cursor = 'grabbing';
     }
+    // const transitionDelay = 500;
 
     const handlePointerMove = (() => {
         let isThrottle = false;
@@ -26,16 +29,25 @@ const ProjectsBottomScrollBar = () => {
             isThrottle = true;
             setTimeout(() => {
                 isThrottle = false;
-            }, 16)
+            }, 100)
             translateX += event.clientX - prePointerX;
             prePointerX = event.clientX;
             if(translateX < minTranslateX) {
+                // setTimeout(() => {
+                //     transformElement.current.style.transform = `translate3d(${minTranslateX}px, -50%, 0)`;
+                // }, transitionDelay)
                 transformElement.current.style.transform = `translate3d(${minTranslateX}px, -50%, 0)`;
             }
             else if(translateX > maxTranslateX) {
+                // setTimeout(() => {
+                //     transformElement.current.style.transform = `translate3d(${maxTranslateX}px, -50%, 0)`;
+                // }, transitionDelay)
                 transformElement.current.style.transform = `translate3d(${maxTranslateX}px, -50%, 0)`;
             }
             else {
+                // setTimeout(() => {
+                //     transformElement.current.style.transform = `translate3d(${translateX}px, -50%, 0)`;
+                // }, transitionDelay);
                 transformElement.current.style.transform = `translate3d(${translateX}px, -50%, 0)`;
             }
         }
@@ -46,7 +58,7 @@ const ProjectsBottomScrollBar = () => {
             return;
         }
         event.stopPropagation();
-        transformElement.current?.children[0].classList.remove("bg-white", "scale-y-[4]");
+        transformElement.current?.children[0].classList.remove(classes['container__barBodyInner--hover']);
         pointerHadDown = false;
         prePointerX = 0;
         if(translateX < minTranslateX) {
@@ -55,6 +67,7 @@ const ProjectsBottomScrollBar = () => {
         else if(translateX > maxTranslateX) {
             translateX = maxTranslateX
         }
+        transformElement.current?.classList.add(classes['container__barBodyCursor']);
         document.body.style.cursor = "default";
     }
     const transformElement = useRef<HTMLDivElement|null>(null);
@@ -69,13 +82,11 @@ const ProjectsBottomScrollBar = () => {
     })
 
     return (
-        <div className="absolute left-0 right-0 bottom-10 w-screen text-white font-['mnn'] text-[10px] flex flex-col items-center gap-6 select-none">
-            <p className="">All</p>
-            <div className="relative bg-[rgba(255,255,255,0.2)] w-1/3 h-[1px]">
-                <div ref={transformElement} className="cursor-grab absolute top-1/2 left-0 ease-[cubic-bezier(0.215,0.61,0.355,1)] duration-[600ms] -translate-y-1/2 h-2 flex items-center group/ProjectsScrollBar"
-                     onPointerDown={handlePointerDown}
-                >
-                    <div className="w-[3vw] h-[1px] bg-[rgba(255,255,255,0.6)] duration-500 group-hover/ProjectsScrollBar:bg-white group-hover/ProjectsScrollBar:scale-y-[4]"></div>
+        <div className={classes['container']}>
+            <p className={classes['container__text']}>All</p>
+            <div className={classes['container__bar']}>
+                <div ref={transformElement} className={[classes['container__barBody'], classes['container__barBodyCursor']].join(" ")} onPointerDown={handlePointerDown}>
+                    <div className={classes['container__barBodyInner']}></div>
                 </div>
             </div>
         </div>

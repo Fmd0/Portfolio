@@ -41,6 +41,7 @@ const BallColors = [0xF5C97B, 0xA8BEDF];
 
 const projectDataMap = {
     "test": {
+        headerImage: "/src/assets/img.png",
         images: ["/src/assets/img.png"],
         title: "BOUCHERON",
         description: "Do you have what it takes to become an icon?",
@@ -79,7 +80,6 @@ const projectDataMap = {
             "Tailwind CSS for customization of UI",
             "Full responsiveness on all pages",
             "All UI in-house, no third-party component libraries",
-
         ]
     }
 }
