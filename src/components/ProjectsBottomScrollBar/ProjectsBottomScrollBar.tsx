@@ -1,76 +1,98 @@
 import * as React from "react";
-import {useEffect, useRef} from "react";
+import {MutableRefObject, useEffect, useRef} from "react";
 import classes from "./ProjectsBottomScrollBar.module.scss";
+import {MAX_PROJECT_LIST_TRANSLATE, MIN_PROJECT_LIST_TRANSLATE} from "../../routes/Projects.tsx";
 
 
-let pointerHadDown = false;
-let translateX = 0;
-let prePointerX = 0;
-const maxTranslateX = window.innerWidth*(1/3-3/100);
-const minTranslateX = 0;
+export const MAX_PROJECT_BOTTOM_SCROLL_BAR = window.innerWidth*(1/3-3/100);
+export const MIN_PROJECT_BOTTOM_SCROLL_BAR = 0;
 
-const ProjectsBottomScrollBar = () => {
+const ProjectsBottomScrollBar = ({bottomBarRef, projectListRef, bottomBarTranslateRef, projectListTranslateRef}: {
+    bottomBarRef: MutableRefObject<null>;
+    projectListRef: MutableRefObject<null>;
+    bottomBarTranslateRef: MutableRefObject<number>;
+    projectListTranslateRef: MutableRefObject<number>;
+}) => {
+
+    const isAnimationRef = useRef(false);
+    const translatePercentRef = useRef(0);
+    const prePointerRef = useRef(0);
+    const pointerHadDownRef = useRef(false);
 
     const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
-        pointerHadDown = true;
-        prePointerX = event.clientX;
-        transformElement.current?.children[0].classList.add(classes['container__barBodyInner--hover']);
-        transformElement.current?.classList.remove(classes['container__barBodyCursor']);
+        event.stopPropagation();
+        pointerHadDownRef.current = true;
+        prePointerRef.current = event.clientX;
+        bottomBarRef.current?.children[0].classList.add(classes['container__barBodyInner--hover']);
+        bottomBarRef.current?.classList.remove(classes['container__barBodyCursor']);
         document.body.style.cursor = 'grabbing';
     }
-    // const transitionDelay = 500;
 
     const handlePointerMove = (() => {
         let isThrottle = false;
         return (event: PointerEvent) => {
-            if(!pointerHadDown || isThrottle) {
+            if(!pointerHadDownRef.current || isThrottle) {
                 return;
             }
             isThrottle = true;
             setTimeout(() => {
                 isThrottle = false;
-            }, 96)
-            translateX += event.clientX - prePointerX;
-            prePointerX = event.clientX;
-            if(translateX < minTranslateX) {
-                // setTimeout(() => {
-                //     transformElement.current.style.transform = `translate3d(${minTranslateX}px, -50%, 0)`;
-                // }, transitionDelay)
-                transformElement.current.style.transform = `translate3d(${minTranslateX}px, -50%, 0)`;
-            }
-            else if(translateX > maxTranslateX) {
-                // setTimeout(() => {
-                //     transformElement.current.style.transform = `translate3d(${maxTranslateX}px, -50%, 0)`;
-                // }, transitionDelay)
-                transformElement.current.style.transform = `translate3d(${maxTranslateX}px, -50%, 0)`;
-            }
-            else {
-                // setTimeout(() => {
-                //     transformElement.current.style.transform = `translate3d(${translateX}px, -50%, 0)`;
-                // }, transitionDelay);
-                transformElement.current.style.transform = `translate3d(${translateX}px, -50%, 0)`;
+            }, 128)
+            console.log(bottomBarTranslateRef.current);
+            bottomBarTranslateRef.current += event.clientX - prePointerRef.current;
+            translatePercentRef.current = bottomBarTranslateRef.current/MAX_PROJECT_BOTTOM_SCROLL_BAR;
+            prePointerRef.current = event.clientX;
+            if(!isAnimationRef.current) {
+                isAnimationRef.current = true;
+                window.requestAnimationFrame(() => {
+                    if(bottomBarTranslateRef.current < MIN_PROJECT_BOTTOM_SCROLL_BAR) {
+                        // setTimeout(() => {
+                        //     transformElement.current.style.transform = `translate3d(${minTranslateX}px, -50%, 0)`;
+                        // }, transitionDelay)
+                        projectListTranslateRef.current = MIN_PROJECT_LIST_TRANSLATE;
+                        bottomBarRef.current.style.transform = `translate3d(${MIN_PROJECT_BOTTOM_SCROLL_BAR}px, -50%, 0)`;
+                        projectListRef.current.style.transform = `translate3d(${-MIN_PROJECT_LIST_TRANSLATE}px, 0, 0)`;
+                    }
+                    else if(bottomBarTranslateRef.current > MAX_PROJECT_BOTTOM_SCROLL_BAR) {
+                        // setTimeout(() => {
+                        //     transformElement.current.style.transform = `translate3d(${maxTranslateX}px, -50%, 0)`;
+                        // }, transitionDelay)
+                        projectListTranslateRef.current = MAX_PROJECT_LIST_TRANSLATE;
+                        bottomBarRef.current.style.transform = `translate3d(${MAX_PROJECT_BOTTOM_SCROLL_BAR}px, -50%, 0)`;
+                        projectListRef.current.style.transform = `translate3d(${-MAX_PROJECT_LIST_TRANSLATE}px, 0, 0)`;
+
+                    }
+                    else {
+                        // setTimeout(() => {
+                        //     transformElement.current.style.transform = `translate3d(${translateX}px, -50%, 0)`;
+                        // }, transitionDelay);
+                        projectListTranslateRef.current = translatePercentRef.current*MAX_PROJECT_LIST_TRANSLATE;
+                        bottomBarRef.current.style.transform = `translate3d(${bottomBarTranslateRef.current}px, -50%, 0)`;
+                        projectListRef.current.style.transform = `translate3d(${-projectListTranslateRef.current}px, 0, 0)`;
+                    }
+                    isAnimationRef.current = false;
+                })
             }
         }
     })();
 
-    const handlePointerUp = (event: PointerEvent) => {
-        if(!pointerHadDown) {
+    const handlePointerUp = () => {
+        if(!pointerHadDownRef.current) {
             return;
         }
-        event.stopPropagation();
-        transformElement.current?.children[0].classList.remove(classes['container__barBodyInner--hover']);
-        pointerHadDown = false;
-        prePointerX = 0;
-        if(translateX < minTranslateX) {
-            translateX = minTranslateX
+        // event.stopPropagation();
+        bottomBarRef.current?.children[0].classList.remove(classes['container__barBodyInner--hover']);
+        pointerHadDownRef.current = false;
+        prePointerRef.current = 0;
+        if(bottomBarTranslateRef.current < MIN_PROJECT_BOTTOM_SCROLL_BAR) {
+            bottomBarTranslateRef.current = MIN_PROJECT_BOTTOM_SCROLL_BAR;
         }
-        else if(translateX > maxTranslateX) {
-            translateX = maxTranslateX
+        else if(bottomBarTranslateRef.current > MAX_PROJECT_BOTTOM_SCROLL_BAR) {
+            bottomBarTranslateRef.current = MAX_PROJECT_BOTTOM_SCROLL_BAR;
         }
-        transformElement.current?.classList.add(classes['container__barBodyCursor']);
+        bottomBarRef.current?.  classList.add(classes['container__barBodyCursor']);
         document.body.style.cursor = "default";
     }
-    const transformElement = useRef<HTMLDivElement|null>(null);
 
     useEffect(() => {
         window.addEventListener("pointermove", handlePointerMove);
@@ -85,7 +107,7 @@ const ProjectsBottomScrollBar = () => {
         <div className={classes['container']}>
             <p className={classes['container__text']}>All</p>
             <div className={classes['container__bar']}>
-                <div ref={transformElement} className={[classes['container__barBody'], classes['container__barBodyCursor']].join(" ")} onPointerDown={handlePointerDown}>
+                <div ref={bottomBarRef} className={[classes['container__barBody'], classes['container__barBodyCursor']].join(" ")} onPointerDown={handlePointerDown}>
                     <div className={classes['container__barBodyInner']}></div>
                 </div>
             </div>

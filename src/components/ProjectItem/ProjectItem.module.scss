@@ -20,6 +20,10 @@
     transition: 500ms;
 }
 
+.projectItem--hover {
+    z-index: 20;
+}
+
 .projectItem__imageContainer {
     position: relative;
     cursor: pointer;
@@ -53,6 +57,12 @@
             transition: calc((0.6s - 0.1s*($i))/var(--transition-time-ratio)) calc(0.1s*($i - 1)/var(--transition-time-ratio)) ease;
         }
     }
+}
+
+.projectItemBottom {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .projectItem__title {

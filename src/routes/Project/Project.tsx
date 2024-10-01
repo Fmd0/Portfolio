@@ -58,7 +58,7 @@ const Project = () => {
                 className={[classes['firstContainer'], pageStage > 0 ? classes['firstContainer--exiting'] : "", pageStage > 1 ? classes['firstContainer--exitedTop'] : ""].join(" ")}>
                 <div className={classes['firstContainerMain']}>
                     <img src={projectData.headerImage} alt="projectData0"
-                         className="w-full h-full object-cover rounded-xl"/>
+                         className="w-full h-full object-cover rounded-md"/>
                     <div className="font-['mnn'] flex flex-col gap-6">
                         <p className="font-sans text-[56px]">{projectData.title.toUpperCase()}</p>
                         <p className="text-[18px]">{projectData.description}</p>
