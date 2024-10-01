@@ -1,5 +1,5 @@
-import {Link} from "react-router-dom";
 import classes from "./HoverAnimationLink.module.scss";
+import LinkPageAnimation from "../LinkPageAnimation.tsx";
 
 const HoverAnimationLink = ({pathname, textName}: {
     pathname: string,
@@ -10,13 +10,7 @@ const HoverAnimationLink = ({pathname, textName}: {
     const selected = window.location.pathname.split("/")[1] === pathname;
 
     return (
-        <Link to={"./"+pathname}
-              onClick={(event) => {
-                  if(selected) {
-                      event.preventDefault();
-                  }
-              }}
-        >
+        <LinkPageAnimation to={"./"+pathname}>
             <div className={[classes.link, selected?classes.selected:""].join(" ")} >
                 <p className={classes.animationFlexContainerTop}>
                     {
@@ -37,7 +31,7 @@ const HoverAnimationLink = ({pathname, textName}: {
                     }
                 </p>
             </div>
-        </Link>
+        </LinkPageAnimation>
     )
 }
 

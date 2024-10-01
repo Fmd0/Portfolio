@@ -1,35 +1,35 @@
 import classes from "./ProjectItem.module.scss";
-import {Link} from "react-router-dom";
 import Values from 'values.js'
+import * as React from "react";
+import {useMemo} from "react";
+import LinkPageAnimation from "../LinkPageAnimation.tsx";
+
+
+const centerX = window.innerWidth / 2;
 
 
 
-const ProjectItem = ({linkKey, headerImage, title, description}: {
+const ProjectItem = ({linkKey, headerImage, title, description, imageBgColor}: {
     linkKey: string;
     headerImage: string;
     title: string;
     description: string;
+    imageBgColor: string;
 }) => {
 
-    const color = new Values('rgb(206,177,151)');
-    // const projectItemTitle = useRef(null);
-    // const projectItemUnderscore = useRef(null);
-    //
-    // const handleMouseOver = () => {
-    //     projectItemTitle.current.classList.add(classes['hoverTranslate']);
-    //     projectItemUnderscore.current.classList.add(classes['hoverTranslate']);
-    // }
-    //
-    // const handleMouseOut = () => {
-    //     projectItemTitle.current.classList.remove(classes['hoverTranslate']);
-    //     projectItemUnderscore.current.classList.remove(classes['hoverTranslate']);
-    //
-    // }
+    const color = useMemo(() => new Values(imageBgColor), [imageBgColor]);
+    const handleMouseOver = (event: React.MouseEvent<HTMLDivElement>) => {
+        const rectInfo = event.currentTarget.getBoundingClientRect();
+        window.document.documentElement.style.setProperty("--transform-origin-first", `${centerX-rectInfo.left}px`)
+    }
+
 
     return (
-        <Link to={`/project/${linkKey}`}>
+        <LinkPageAnimation to={`/project/${linkKey}`}>
             <div className={classes['projectItem']}>
-                <div className={classes['projectItem__imageContainer']}>
+                <div className={classes['projectItem__imageContainer']}
+                     onMouseOver={handleMouseOver}
+                >
                     <img src={headerImage} alt="ProjectItem" className={classes['projectItem__image']}/>
 
                     <div className={classes['projectItem__imageContainerBg']} style={{
@@ -49,7 +49,7 @@ const ProjectItem = ({linkKey, headerImage, title, description}: {
                 <p className={classes['projectItem__description']}>{description.length > 80 ? description.slice(0, 80) + "...":description}</p>
 
             </div>
-        </Link>
+        </LinkPageAnimation>
     )
 }
 

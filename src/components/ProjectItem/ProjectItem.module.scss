@@ -2,10 +2,11 @@
 
 
 :root {
-    --hover-translate: 5px;
+    --hover-translate: 0px;
     --transform-origin-first: 100%;
     --transform-origin-second: 50%;
     --transition-time-ratio: 1.2;
+    --transition-scale-size: 1.1;
 }
 
 .projectItem {
@@ -24,7 +25,7 @@
     cursor: pointer;
     width: 400px;
     height: 225px;
-    //overflow: hidden;
+    min-width: 400px;
 }
 
 .projectItem__image {
@@ -79,11 +80,9 @@
 
 .projectItem__description {
     margin-top: 16px;
-    position: absolute;
-    left: 0;
-    top: 100%;
     font-family: Mnn , sans-serif;
     font-size: 12px;
+    color: white;
 
     opacity: 0;
     transform-origin: var(--transform-origin-first) var(--transform-origin-second);
@@ -92,13 +91,13 @@
 }
 
 .projectItem__imageContainer:hover > .projectItem__image {
-    transform: translate3d(calc(-5 * var(--hover-translate)), 0, 0) scale(1.05);
+    transform: translate3d(calc(-5 * var(--hover-translate)), 0, 0) scale(var(--transition-scale-size));
 }
 
 .projectItem__imageContainer:hover > .projectItem__imageContainerBg {
     @for $i from 1 through 6 {
         &:nth-child(#{$i}) {
-            transform: translate3d(calc((-6 + $i)*var(--hover-translate)),0,0) scale(1.05-(($i)-1)*0.01);
+            transform: translate3d(calc((-6 + $i)*var(--hover-translate)),0,0) scale(calc(var(--transition-scale-size) - (($i) - 1 ) * 0.01));
             transition: calc((0.6s - 0.1s*($i))/var(--transition-time-ratio)) ease;
         }
     }
@@ -108,5 +107,5 @@
 .projectItem__imageContainer:hover ~ .projectItem__underscore,
 .projectItem__imageContainer:hover ~ .projectItem__description {
     opacity: 1;
-    transform: translate3d(calc(-5 * var(--hover-translate)), 0, 0) scale(1.05);
+    transform: translate3d(calc(-5 * var(--hover-translate)), 0, 0) scale(var(--transition-scale-size));
 }

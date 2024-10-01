@@ -7,7 +7,7 @@ import {gsap} from "gsap"
 import {
     prePageLocation, setIsContactCanvasAnimationFalse, setIsContactCanvasAnimationTrue,
     setIsHomeCanvasAnimationFalse,
-    setIsHomeCanvasAnimationTrue,
+    setIsHomeCanvasAnimationTrue, setIsPageAnimation,
     setPrePageLocation
 } from "../../utils/constants.ts";
 
@@ -32,12 +32,19 @@ const windowDegree = Math.atan(window.innerWidth/window.innerHeight/3.5)/Math.PI
 const easeExpoInOut = gsap.parseEase("expo.inOut");
 const easePower3InOut = gsap.parseEase("power3.inOut");
 
+let isPageAnimationTimeId = 0;
 
 const handleEnter = (isAppearing: boolean) => {
     let pathname = window.location.pathname;
     if(pathname.startsWith("/project/")){
         pathname = "/project";
     }
+
+    setIsPageAnimation(true);
+    window.clearTimeout(isPageAnimationTimeId);
+    isPageAnimationTimeId = setTimeout(() => {
+        setIsPageAnimation(false);
+    }, 2000)
 
     if(isAppearing) {
         // for appear and page have threeJS animation, do one judge and set pre location

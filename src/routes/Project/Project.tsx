@@ -57,10 +57,6 @@ const Project = () => {
             <div
                 className={[classes['firstContainer'], pageStage > 0 ? classes['firstContainer--exiting'] : "", pageStage > 1 ? classes['firstContainer--exitedTop'] : ""].join(" ")}>
                 <div className={classes['firstContainerMain']}>
-                    {/*<div className="relative min-h-[35vh] rounded-[32px] overflow-hidden">*/}
-                    {/*    <img src={projectData.images[0]} alt="projectData0" className="w-full h-full object-cover"/>*/}
-                    {/*    <div className="absolute w-full h-full inset-0 bg-[#0000000a]"></div>*/}
-                    {/*</div>*/}
                     <img src={projectData.headerImage} alt="projectData0"
                          className="w-full h-full object-cover rounded-xl"/>
                     <div className="font-['mnn'] flex flex-col gap-6">
@@ -72,11 +68,17 @@ const Project = () => {
                             ))}
                         </p>
                         <div className="flex flex-col gap-1">
-                            <a className="text-[13px] duration-500 hover:text-yellow-300"
-                               href={projectData.gitHubRepository} target="_blank">GitHub
-                                Repository: {projectData.gitHubRepository}</a>
-                            <a className="text-[13px] duration-500 hover:text-yellow-300" href={projectData.liveDemo}
-                               target="_blank">Live Demo: {projectData.liveDemo}</a>
+                            {
+                                projectData.gitHubRepository && projectData.gitHubRepository !== "" &&
+                                <a className="text-[13px] duration-500 hover:text-yellow-300"
+                                   href={projectData.gitHubRepository} target="_blank">GitHub
+                                    Repository: {projectData.gitHubRepository}</a>
+                            }
+                            {
+                                projectData.liveDemo && projectData.liveDemo !== "" &&
+                                <a className="text-[13px] duration-500 hover:text-yellow-300"
+                                   href={projectData.liveDemo} target="_blank">Live Demo: {projectData.liveDemo}</a>
+                            }
                         </div>
                     </div>
                 </div>
@@ -105,38 +107,20 @@ const Project = () => {
                 </div>
             </div>
 
-            <div
-                className={[classes['subContainer'], pageStage === 2 ? classes['subContainer--normal'] : pageStage < 2 ? classes['subContainer--exitedBottom'] : classes['subContainer--exitedTop']].join(" ")}
-                style={{backgroundColor: projectData.gallery[0].backgroundColor}}>
-                <div
-                    className="relative w-[70%] h-[70%] border-solid border-[10px] duration-500 border-black border-opacity-30 hover:!border-white"
-                    // style={{borderColor: projectData.gallery[0].borderColor}}
-                >
-                    <img src={projectData.gallery[0].image} alt="gallery" className="w-full h-full object-cover"/>
-                    <div className="absolute inset-0 bg-[#0000000a]"></div>
-                </div>
-            </div>
-
-            <div
-                className={[classes['subContainer'], pageStage === 3 ? classes['subContainer--normal'] : pageStage < 3 ? classes['subContainer--exitedBottom'] : classes['subContainer--exitedTop']].join(" ")}
-                style={{backgroundColor: projectData.gallery[1].backgroundColor}}>
-                <div
-                    className="relative w-[70%] h-[70%] border-solid border-[10px] duration-500 border-black border-opacity-30 hover:border-white">
-                    <img src={projectData.gallery[1].image} alt="gallery" className="w-full h-full object-cover"/>
-                    <div className="absolute inset-0 bg-[#0000000a]"></div>
-                </div>
-            </div>
-
-            <div
-                className={[classes['subContainer'], pageStage === 4 ? classes['subContainer--normal'] : pageStage < 4 ? classes['subContainer--exitedBottom'] : classes['subContainer--exitedTop']].join(" ")}
-                style={{backgroundColor: projectData.gallery[2].backgroundColor}}>
-                <div
-                    className="relative w-[70%] h-[70%] border-solid border-[10px] duration-500 border-black border-opacity-30 hover:border-white">
-                    <img src={projectData.gallery[2].image} alt="gallery" className="w-full h-full object-cover"/>
-                    <div className="absolute inset-0 bg-[#0000000a]"></div>
-                </div>
-            </div>
-
+            {
+                projectData.gallery.map((currentGallery, index) => (
+                    <div key={index}
+                         className={[classes['subContainer'], pageStage === index+2 ? classes['subContainer--normal'] : pageStage < index+2 ? classes['subContainer--exitedBottom'] : classes['subContainer--exitedTop']].join(" ")}
+                         style={{backgroundColor: currentGallery.backgroundColor}}>
+                        <div
+                            className="relative w-[70%] h-[70%] border-solid border-[10px] duration-500 border-black border-opacity-30 hover:!border-white">
+                            <img src={currentGallery.image} alt="gallery"
+                                 className="w-full h-full object-cover"/>
+                            <div className="absolute inset-0 bg-[#0000000a]"></div>
+                        </div>
+                    </div>
+                ))
+            }
 
             <ProjectBottomBar currentStage={pageStage + 1} totalStage={projectData.gallery.length + 2}/>
         </div>

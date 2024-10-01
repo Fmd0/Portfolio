@@ -29,7 +29,7 @@ const ProjectsBottomScrollBar = () => {
             isThrottle = true;
             setTimeout(() => {
                 isThrottle = false;
-            }, 100)
+            }, 96)
             translateX += event.clientX - prePointerX;
             prePointerX = event.clientX;
             if(translateX < minTranslateX) {
