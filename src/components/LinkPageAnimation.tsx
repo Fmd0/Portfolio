@@ -1,9 +1,10 @@
 import {Link} from "react-router-dom";
 import {IS_PAGE_ANIMATION} from "../utils/constants.ts";
 
-const LinkPageAnimation = ({to, children}: {
+const LinkPageAnimation = ({to, children, className}: {
     to: string,
-    children: React.ReactNode
+    children: React.ReactNode,
+    className?: string
 }) => {
 
     const handleClick = (e: React.MouseEvent) => {
@@ -13,7 +14,7 @@ const LinkPageAnimation = ({to, children}: {
     }
 
     return (
-        <Link to={to} onClick={handleClick}>
+        <Link to={to} onClick={handleClick} className={className||""}>
             {children}
         </Link>
     )

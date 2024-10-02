@@ -1,4 +1,4 @@
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {useEffect, useMemo, useRef, useState} from "react";
 import {projectDataMap} from "../../utils/constants.ts";
 import classes from "./Project.module.scss";
@@ -13,6 +13,7 @@ const Project = () => {
 
     const [pageStage, setPageStage] = useState<number>(0);
     const totalPageStage = projectData.gallery.length+1;
+    const navigate = useNavigate();
 
     const handleWheel = (() => {
         let isThrottle = false;
@@ -29,7 +30,13 @@ const Project = () => {
             // console.log(Math.abs(event.deltaY) >= Math.abs(event.deltaX));
             if(!scrollHasHandled.current && Math.abs(event.deltaY) >= Math.abs(event.deltaX)) {
                 if(event.deltaY > 0) {
-                    setPageStage(p => p===totalPageStage?totalPageStage:p + 1);
+                    if(pageStage===totalPageStage) {
+                        navigate("/projects");
+                    }
+                    else {
+                        setPageStage(p => p + 1);
+                    }
+                    // setPageStage(p => p===totalPageStage?totalPageStage&&navigate("/projects"):p + 1);
                 }
                 else {
                     setPageStage(p => p===0?0:p - 1);
@@ -49,7 +56,8 @@ const Project = () => {
         return () => {
             window.removeEventListener("wheel", handleWheel);
         }
-    }, []);
+    }, [pageStage]);
+    // console.log(pageStage);
 
     return (
         <div className={classes['container'] + ' bg-gray-800'}>

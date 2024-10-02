@@ -8,8 +8,8 @@ export const MAX_PROJECT_BOTTOM_SCROLL_BAR = window.innerWidth*(1/3-3/100);
 export const MIN_PROJECT_BOTTOM_SCROLL_BAR = 0;
 
 const ProjectsBottomScrollBar = ({bottomBarRef, projectListRef, bottomBarTranslateRef, projectListTranslateRef}: {
-    bottomBarRef: MutableRefObject<null>;
-    projectListRef: MutableRefObject<null>;
+    bottomBarRef: MutableRefObject<null|HTMLDivElement>;
+    projectListRef: MutableRefObject<null|HTMLDivElement>;
     bottomBarTranslateRef: MutableRefObject<number>;
     projectListTranslateRef: MutableRefObject<number>;
 }) => {
@@ -38,7 +38,7 @@ const ProjectsBottomScrollBar = ({bottomBarRef, projectListRef, bottomBarTransla
             setTimeout(() => {
                 isThrottle = false;
             }, 128)
-            console.log(bottomBarTranslateRef.current);
+            // console.log(bottomBarTranslateRef.current);
             bottomBarTranslateRef.current += event.clientX - prePointerRef.current;
             translatePercentRef.current = bottomBarTranslateRef.current/MAX_PROJECT_BOTTOM_SCROLL_BAR;
             prePointerRef.current = event.clientX;
