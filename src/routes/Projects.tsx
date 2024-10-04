@@ -105,7 +105,7 @@ const Projects = () => {
             isThrottle = true;
             setTimeout(() => {
                 isThrottle = false;
-            }, 16);
+            }, 8);
             // console.log("handlePointerMoveTranslate");
             // handle project list translate
             projectListTranslateRef.current -= event.clientX - prePointerRef.current;
@@ -148,7 +148,7 @@ const Projects = () => {
     }, []);
 
     return (
-        <div className="fixed inset-0 w-screen h-screen bg-[#222222] flex items-center select-none">
+        <div className="fixed inset-0 w-screen h-screen bg-[#222222] flex items-center select-none touch-pan-y">
             <div className="overflow-hidden">
                 <div className="pl-32 flex flex-row gap-8 ease-[cubic-bezier(0.215,0.61,0.355,1)] duration-500 will-change-transform"
                      ref={projectListRef}>

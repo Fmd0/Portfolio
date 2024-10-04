@@ -47,7 +47,7 @@ const BallColors = [0xF5C97B, 0xA8BEDF];
 
 const projectDataMap = {
     "shop": {
-        headerImage: "/src/assets/projectImage/shop/shop0.jpg",
+        headerImage: "/src/assets/projectImage/shop/shop1.jpg",
         imageBgColor: "rgb(206,177,151)",
         gallery: [
             {

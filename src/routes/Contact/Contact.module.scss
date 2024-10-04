@@ -64,3 +64,33 @@
     justify-content: center;
     gap: 16px;
 }
+
+.container__bottom__icon {
+    font-size: 20px;
+    color: white;
+}
+
+
+@media(max-width: 768px) {
+    .container {
+        gap: 12px;
+    }
+    .container__top {
+        padding: 0 6px;
+    }
+    .container__top__firstLine {
+        font-size: 40px;
+    }
+    .container__top__secondLine {
+        font-size: 44px;
+    }
+    .container__paragraph {
+        font-size: 12px;
+    }
+    .container__bottom__iconList {
+        margin-top: 8px;
+    }
+    .container__bottom__icon {
+        font-size: 18px;
+    }
+}

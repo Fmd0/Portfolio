@@ -4,7 +4,7 @@ import classes from "./ProjectsBottomScrollBar.module.scss";
 import {MAX_PROJECT_LIST_TRANSLATE, MIN_PROJECT_LIST_TRANSLATE} from "../../routes/Projects.tsx";
 
 
-export const MAX_PROJECT_BOTTOM_SCROLL_BAR = window.innerWidth*(1/3-3/100);
+export const MAX_PROJECT_BOTTOM_SCROLL_BAR = window.innerWidth*0.4>400?400-window.innerWidth*3/100:window.innerWidth*0.4-window.innerWidth*3/100;
 export const MIN_PROJECT_BOTTOM_SCROLL_BAR = 0;
 
 const ProjectsBottomScrollBar = ({bottomBarRef, projectListRef, bottomBarTranslateRef, projectListTranslateRef}: {

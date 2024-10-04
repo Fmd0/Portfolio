@@ -13,17 +13,22 @@ const Contact = () => {
             </div>
             <div className={classes['container__bottom']}>
                 <p className={classes['container__paragraph']}>HandZhou City. ZheJiang Province. China</p>
-                <p className={classes['container__paragraph'] + " cursor-pointer duration-500 hover:text-[#ffc856]"}>email: cen369777@163.com</p>
+                <a href="mailto:cen369777@gmail.com">
+                    <p className={classes['container__paragraph'] + " cursor-pointer duration-500 hover:text-[#ffc856]"}>email:
+                        cen369777@gmail.com</p>
+                </a>
                 <p className={classes['container__paragraph']}>Hope to join you</p>
                 <div className={classes['container__bottom__iconList']}>
-                    <a href="#" target="_blank" className="cursor-pointer">
-                        <FaGithub size={20} color="white"/>
+                    <a href="https://github.com/Fmd0" target="_blank" className="cursor-pointer">
+                        <FaGithub className={classes['container__bottom__icon']}/>
                     </a>
-                    <FaLinkedin size={20} color="white" />
+                    <a href="#" target="_blank" className="cursor-pointer">
+                        <FaLinkedin className={classes['container__bottom__icon']}/>
+                    </a>
                 </div>
             </div>
         </div>
-    )
+)
 }
 
 export default Contact;

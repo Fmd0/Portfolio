@@ -90,7 +90,7 @@ const HomeCanvasConfig = () => {
             plane.receiveShadow = true;
             scene.add(plane);
 
-            Array.from({length: 10}).map(() => {
+            Array.from({length: 7}).map(() => {
                 const position = randomPosition3D(80);
                 position[0] -= 40;
                 position[1] += 40*0.27*1.8;
@@ -112,7 +112,7 @@ const HomeCanvasConfig = () => {
                     body: ballBody,
                 })
             })
-            Array.from({length: 10}).map(() => {
+            Array.from({length: 7}).map(() => {
                 const position = randomPosition3D(80);
                 // position[0] -= 40;
                 // position[1] += 40*0.27*1.3;
@@ -136,7 +136,7 @@ const HomeCanvasConfig = () => {
             })
             const offset = 70;
             const addBall = () => {
-                Array.from({length: 7}).map(() => {
+                Array.from({length: 6}).map(() => {
                     const position = randomPosition3D(80);
                     position[0] -= offset;
                     position[1] += offset*0.27*1.8;
