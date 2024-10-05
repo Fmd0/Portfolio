@@ -114,7 +114,7 @@ const Layout = () => {
         pathname = "/project";
     }
     return (
-        <div>
+        <div className="">
             <NavBar />
             <TransitionGroup>
                 <CSSTransition key={pathname} nodeRef={nodeRefMap[pathname]} timeout={2000}

@@ -1,9 +1,12 @@
 
 .container {
-  position: fixed;
-  inset: 0;
+  //position: fixed;
+  //inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   color: white;
   background-color: rgb(107 114 128);
 }
@@ -24,7 +27,7 @@
 
 .firstContainerMain {
   display: grid;
-  grid-template-columns: 2fr 3fr;
+  grid-template-columns: 45fr 55fr;
   gap: 64px;
 
   transform: translate3d(0, -48px, 0);
@@ -33,7 +36,7 @@
 .gradientText0, .gradientText1, .gradientText2 {
   font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   letter-spacing: 1px;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .gradientText0 {
@@ -106,6 +109,7 @@
   //background-color: #0000004a;
   //backdrop-filter: blur(8px);
   user-select: none;
+  padding: 16px;
 
   display: flex;
   align-items: center;
@@ -181,4 +185,19 @@
 .subContainer--normal {
   transform: translate3d(0, 0, 0);
   transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+@media(max-width: 1024px) {
+  .firstContainerMain {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 24px;
+  }
+}
+
+@media(max-width: 768px) {
+  .firstContainer, .secondContainer, .subContainer {
+    display: none;
+  }
 }
