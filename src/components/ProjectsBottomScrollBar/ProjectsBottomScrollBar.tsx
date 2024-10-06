@@ -104,7 +104,7 @@ const ProjectsBottomScrollBar = ({bottomBarRef, projectListRef, bottomBarTransla
     })
 
     return (
-        <div className={classes['container']}>
+        <div className={classes['container']+" hidden md:flex"}>
             <p className={classes['container__text']}>All</p>
             <div className={classes['container__bar']}>
                 <div ref={bottomBarRef} className={[classes['container__barBody'], classes['container__barBodyCursor']].join(" ")} onPointerDown={handlePointerDown}>

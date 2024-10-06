@@ -4,6 +4,7 @@ import ProjectsBottomScrollBar, {
     MAX_PROJECT_BOTTOM_SCROLL_BAR
 } from "../components/ProjectsBottomScrollBar/ProjectsBottomScrollBar.tsx";
 import {useEffect, useRef} from "react";
+import SmallProjectItem from "../components/SmallProjectItem.tsx";
 
 export const MIN_PROJECT_LIST_TRANSLATE = 0;
 export const MAX_PROJECT_LIST_TRANSLATE = 4*400+3*32+16*8*2 - window.innerWidth;
@@ -131,13 +132,15 @@ const Projects = () => {
 
 
     useEffect(() => {
-        window.addEventListener("wheel", handleWheel, {
-            passive: false,
-        });
-        window.addEventListener("pointerdown", handlePointerDown);
-        window.addEventListener("pointermove", handlePointerMove);
-        window.addEventListener("pointermove", handlePointerMoveTranslate);
-        window.addEventListener("pointerup", handlePointerUp);
+        if(window.innerWidth > 768) {
+            window.addEventListener("wheel", handleWheel, {
+                passive: false,
+            });
+            window.addEventListener("pointerdown", handlePointerDown);
+            window.addEventListener("pointermove", handlePointerMove);
+            window.addEventListener("pointermove", handlePointerMoveTranslate);
+            window.addEventListener("pointerup", handlePointerUp);
+        }
         return () => {
             window.removeEventListener("wheel", handleWheel);
             window.removeEventListener("pointerdown", handlePointerDown);
@@ -148,8 +151,8 @@ const Projects = () => {
     }, []);
 
     return (
-        <div className="fixed inset-0 w-screen h-screen bg-[#222222] flex items-center select-none touch-pan-x">
-            <div className="overflow-hidden">
+        <div className="relative top-0 left-0 py-12 md:py-0 md:fixed md:inset-0 md:w-screen md:h-screen bg-[#222222] flex items-center select-none md:touch-pan-x">
+            <div className="overflow-hidden hidden md:flex">
                 <div className="pl-32 flex flex-row gap-8 ease-[cubic-bezier(0.215,0.61,0.355,1)] duration-500 will-change-transform"
                      ref={projectListRef}>
                     {
@@ -166,6 +169,14 @@ const Projects = () => {
                 bottomBarTranslateRef={bottomBarTranslateRef}
                 projectListTranslateRef={projectListTranslateRef}
             />
+
+            <div className="md:hidden flex flex-col p-6 gap-8">
+                {
+                    Object.keys(projectDataMap).map((projectDataKey, index) => (
+                        <SmallProjectItem key={index} {...projectDataMap[projectDataKey]} linkKey={projectDataKey}/>
+                    ))
+                }
+            </div>
         </div>
     )
 }

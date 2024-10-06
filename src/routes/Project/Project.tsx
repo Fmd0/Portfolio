@@ -115,7 +115,7 @@ const Project = () => {
     // console.log(pageStage);
 
     return (
-        <div className={classes['container'] + ' static md:fixed bg-grey-800 md:touch-pan-x'}>
+        <div className={classes['container'] + ' relative top-0 left-0 md:fixed bg-grey-800 md:touch-pan-x'}>
 
             <div
                 className={[classes['firstContainer'], pageStage > 0 ? classes['firstContainer--exiting'] : "", pageStage > 1 ? classes['firstContainer--exitedTop'] : ""].join(" ")}>
@@ -185,7 +185,7 @@ const Project = () => {
                 ))
             }
 
-            <div className="flex md:hidden flex-col px-4 py-20 gap-4 text-white">
+            <div className="flex md:hidden flex-col px-4 py-20 gap-8 text-white">
                 <img src={projectData.headerImage} alt="projectData0"
                      className="object-cover rounded-md"/>
                 <div className="font-['mnn'] flex flex-col gap-2">
