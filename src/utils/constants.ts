@@ -47,19 +47,19 @@ const BallColors = [0xF5C97B, 0xA8BEDF];
 
 const projectDataMap = {
     "shop": {
-        headerImage: "/src/assets/projectImage/shop/shop1.jpg",
+        headerImage: "https://github.com/Fmd0/assets/blob/main/projectImage/shop/shop1.jpg?raw=true",
         imageBgColor: "rgb(206,177,151)",
         gallery: [
             {
-                image:  "/src/assets/projectImage/shop/shop1.jpg",
+                image:  "https://github.com/Fmd0/assets/blob/main/projectImage/shop/shop1.jpg?raw=true",
                 backgroundColor: "rgb(230,74,113)"
             },
             {
-                image:  "/src/assets/projectImage/shop/shop2.jpg",
+                image:  "https://github.com/Fmd0/assets/blob/main/projectImage/shop/shop2.jpg?raw=true",
                 backgroundColor: "rgb(42,194,144)"
             },
             {
-                image:  "/src/assets/projectImage/shop/shop3.jpg",
+                image:  "https://github.com/Fmd0/assets/blob/main/projectImage/shop/shop3.jpg?raw=true",
                 backgroundColor: "rgb(250,205,35)"
             }
         ],
@@ -81,19 +81,19 @@ const projectDataMap = {
         ]
     },
     "netflix": {
-        headerImage: "/src/assets/projectImage/netflix/netflix0.jpg",
+        headerImage: "https://github.com/Fmd0/assets/blob/main/projectImage/netflix/netflix0.jpg?raw=true",
         imageBgColor: "rgb(139,55,73)",
         gallery: [
             {
-                image:  "/src/assets/projectImage/netflix/netflix1.jpg",
+                image:  "https://github.com/Fmd0/assets/blob/main/projectImage/netflix/netflix1.jpg?raw=true",
                 backgroundColor: "rgb(230,74,113)"
             },
             {
-                image:  "/src/assets/projectImage/netflix/netflix2.jpg",
+                image:  "https://github.com/Fmd0/assets/blob/main/projectImage/netflix/netflix2.jpg?raw=true",
                 backgroundColor: "rgb(42,194,144)"
             },
             {
-                image:  "/src/assets/projectImage/netflix/netflix3.jpg",
+                image:  "https://github.com/Fmd0/assets/blob/main/projectImage/netflix/netflix3.jpg?raw=true",
                 backgroundColor: "rgb(250,205,35)"
             },
         ],
@@ -115,19 +115,19 @@ const projectDataMap = {
         ]
     },
     "whiteboard": {
-        headerImage: "/src/assets/projectImage/whiteboard/whiteboard0.jpg",
+        headerImage: "https://github.com/Fmd0/assets/blob/main/projectImage/whiteboard/whiteboard0.jpg?raw=true",
         imageBgColor: "rgb(13,172,223)",
         gallery: [
             {
-                image:  "/src/assets/projectImage/whiteboard/whiteboard0.jpg",
+                image:  "https://github.com/Fmd0/assets/blob/main/projectImage/whiteboard/whiteboard0.jpg?raw=true",
                 backgroundColor: "rgb(230,74,113)"
             },
             {
-                image:  "/src/assets/projectImage/whiteboard/whiteboard1.jpg",
+                image:  "https://github.com/Fmd0/assets/blob/main/projectImage/whiteboard/whiteboard1.jpg?raw=true",
                 backgroundColor: "rgb(42,194,144)"
             },
             {
-                image:  "/src/assets/projectImage/whiteboard/whiteboard2.jpg",
+                image:  "https://github.com/Fmd0/assets/blob/main/projectImage/whiteboard/whiteboard2.jpg?raw=true",
                 backgroundColor: "rgb(250,205,35)"
             },
         ],
@@ -148,19 +148,19 @@ const projectDataMap = {
         ]
     },
     "shopAdministration": {
-        headerImage: "/src/assets/projectImage/shopAdministration/shopAdministration0.jpg",
+        headerImage: "https://github.com/Fmd0/assets/blob/main/projectImage/shopAdministration/shopAdministration0.jpg?raw=true",
         imageBgColor: "rgb(198,100,208)",
         gallery: [
             {
-                image:  "/src/assets/projectImage/shopAdministration/shopAdministration1.jpg",
+                image:  "https://github.com/Fmd0/assets/blob/main/projectImage/shopAdministration/shopAdministration1.jpg?raw=true",
                 backgroundColor: "rgb(230,74,113)"
             },
             {
-                image:  "/src/assets/projectImage/shopAdministration/shopAdministration2.jpg",
+                image:  "https://github.com/Fmd0/assets/blob/main/projectImage/shopAdministration/shopAdministration2.jpg?raw=true",
                 backgroundColor: "rgb(42,194,144)"
             },
             {
-                image:  "/src/assets/projectImage/shopAdministration/shopAdministration3.jpg",
+                image:  "https://github.com/Fmd0/assets/blob/main/projectImage/shopAdministration/shopAdministration3.jpg?raw=true",
                 backgroundColor: "rgb(250,205,35)"
             },
         ],
@@ -180,7 +180,101 @@ const projectDataMap = {
             "Image storage powered by Cloudinary",
         ]
     },
-}
+    "planeGame": {
+        headerImage: "https://github.com/Fmd0/assets/blob/main/projectImage/planeGame/planeGame0.jpg?raw=true",
+        imageBgColor: "rgb(203,75,40)",
+        gallery: [
+            {
+                image:  "https://github.com/Fmd0/assets/blob/main/projectImage/planeGame/planeGame0.jpg?raw=true",
+                backgroundColor: "rgb(230,74,113)"
+            },
+            {
+                image:  "https://github.com/Fmd0/assets/blob/main/projectImage/planeGame/planeGame1.jpg?raw=true",
+                backgroundColor: "rgb(42,194,144)"
+            },
+            {
+                image:  "https://github.com/Fmd0/assets/blob/main/projectImage/planeGame/planeGame2.jpg?raw=true",
+                backgroundColor: "rgb(250,205,35)"
+            },
+        ],
+        title: "Plane Game",
+        description: "A Three.js 3D game where players control an aircraft with the mouse, combining simple shapes to create complex structures like trees, flowers, clouds, and airplanes.",
+        gitHubRepository: "https://github.com/Fmd0/PlaneGame-ThreeJS",
+        liveDemo: "https://fmd0.github.io/pages/planeGame/",
+        technologies: ["Three.js", "Vite", "Canvas3D"],
+        detailTitle: "Mouse-Controlled Aircraft in a Three.js 3D World",
+        detailDescription: "A sophisticated Three.js 3D game that allows players to control an aircraft using the mouse, creatively combining simple 3D shapes provided by the Three.js library to construct a variety of intriguing and complex structures, such as trees, flowers, clouds, and airplanes.",
+        features: [
+            "Developed with Vite: Leveraged Vite for a fast and efficient development workflow, optimizing performance.",
+            "No Pre-existing 3D Models: All elements are constructed using native Three.js shapes, ensuring unique and original designs.",
+            "Dual Lighting Setup: Utilizes AmbientLight and directional lighting for beautiful shadow effects, enhancing the visual experience.",
+            "Cross-Platform Input Device Support: Compatible with various input methods, including mouse, touch, and stylus, for versatile gameplay experiences.",
+            "Advanced Randomization: Implements sophisticated algorithms to generate random objects in appropriate locations, adding variety and surprise to the environment.",
+        ]
+    },
+    "diceRollerSimulator": {
+        headerImage: "https://github.com/Fmd0/assets/blob/main/projectImage/diceRollerSimulator/diceRollerSimulator0.jpg?raw=true",
+        imageBgColor: "rgb(250,124,247)",
+        gallery: [
+            {
+                image:  "https://github.com/Fmd0/assets/blob/main/projectImage/diceRollerSimulator/diceRollerSimulator0.jpg?raw=true",
+                backgroundColor: "rgb(230,74,113)"
+            },
+            {
+                image:  "https://github.com/Fmd0/assets/blob/main/projectImage/diceRollerSimulator/diceRollerSimulator1.jpg?raw=true",
+                backgroundColor: "rgb(42,194,144)"
+            },
+            {
+                image:  "https://github.com/Fmd0/assets/blob/main/projectImage/diceRollerSimulator/diceRollerSimulator2.jpg?raw=true",
+                backgroundColor: "rgb(250,205,35)"
+            },
+        ],
+        title: "Dice Roller Simulator",
+        description: "A 3D dice simulator built on Three.js, utilizing Cannon.js as the physics engine, allowing users to control the number of the dices.",
+        gitHubRepository: "https://github.com/Fmd0/DiceRollerSimulator-ThreeJS",
+        liveDemo: "https://fmd0.github.io/pages/diceRollerSimulator/",
+        technologies: ["Three.js", "Vite", "Cannon.js"],
+        detailTitle: "3D Dice Simulator with User-Controlled Rolls Using Three.js and Cannon.js",
+        detailDescription: "A 3D dice simulator built on Three.js, utilizing Cannon.js as the physics engine, allowing users to control the number of the dices.",
+        features: [
+            "Built with Vite and Three.js: Ensures fast development and smooth performance for an immersive experience.",
+            "Cannon.js Physics Engine: Provides realistic scene simulations for accurate dice interactions.",
+            "Advanced Lighting and Shadow System: Creates beautifully rendered scenes with dynamic lighting effects.",
+            "Variable Dice Quantity: Allows users to customize the number of dice, catering to diverse gameplay needs.",
+            "Randomized Initial Dice Positioning: Enhances realism by randomizing starting positions, resulting in more authentic outcomes.",
+        ]
+    },
+    "starAnimation": {
+        headerImage: "https://github.com/Fmd0/assets/blob/main/projectImage/starAnimation/starAnimation0.jpg?raw=true",
+        imageBgColor: "rgb(217,32,32)",
+        gallery: [
+            {
+                image: "https://github.com/Fmd0/assets/blob/main/projectImage/starAnimation/starAnimation0.jpg?raw=true",
+                backgroundColor: "rgb(230,74,113)"
+            },
+            {
+                image: "https://github.com/Fmd0/assets/blob/main/projectImage/starAnimation/starAnimation1.jpg?raw=true",
+                backgroundColor: "rgb(42,194,144)"
+            },
+        ],
+        title: "Star Animation",
+        description: "Star animation button utilizing Three.js to render the 3D star model and GSAP for smooth animation curves, featuring both in-place rotation and circular rotation effects",
+        gitHubRepository: "https://github.com/Fmd0/StarButtonAnimation-ThreeJS",
+        liveDemo: "https://fmd0.github.io/pages/starAnimation/",
+        technologies: ["Three.js", "Vite", "GSAP"],
+        detailTitle: "Star Animation Button with Three.js and GSAP for Rotational Effects",
+        detailDescription: "Star animation button utilizing Three.js to render the 3D star model and GSAP for smooth animation curves, featuring both in-place rotation and circular rotation effects",
+        features: [
+            "Built with Vite, Three.js, and GSAP: Ensures fast development and smooth performance.",
+            "3D Star Model Rendering: Utilizes Three.js to load and display a detailed star model.",
+            "Multi-Directional Lighting: Implements multiple DirectionalLights to create a three-dimensional star effect.",
+            "Smooth Rotation Trajectories: Uses GSAP for calculating and animating fluid star rotation paths.",
+            "Looped Animation Cycle: Allows the animation to restart seamlessly after completion, enhancing user engagement.",
+        ]
+    },
+
+
+    }
 
 // "rgb(230,74,113)"
 // "rgb(42,194,144)"

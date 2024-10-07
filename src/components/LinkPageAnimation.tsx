@@ -21,7 +21,11 @@ const LinkPageAnimation = forwardRef(({to, children, className, onClick}: {
     }
 
     return (
-        <Link to={to} onClick={handleClick} className={className||""} ref={ref}>
+        <Link to={to} onClick={handleClick} className={className||""} ref={ref}
+              onPointerDown={e => e.stopPropagation()}
+              onPointerMove={e => e.stopPropagation()}
+              onPointerUp={e => e.stopPropagation()}
+        >
             {children}
         </Link>
     )

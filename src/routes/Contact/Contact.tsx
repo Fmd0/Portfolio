@@ -22,7 +22,7 @@ const Contact = () => {
                     <a href="https://github.com/Fmd0" target="_blank" className="cursor-pointer">
                         <FaGithub className={classes['container__bottom__icon']}/>
                     </a>
-                    <a href="#" target="_blank" className="cursor-pointer">
+                    <a href="https://www.linkedin.com/in/%E4%BA%91%E4%BA%91-%E5%A4%A9-7a9969284/" target="_blank" className="cursor-pointer">
                         <FaLinkedin className={classes['container__bottom__icon']}/>
                     </a>
                 </div>

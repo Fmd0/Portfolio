@@ -7,7 +7,7 @@ import {useEffect, useRef} from "react";
 import SmallProjectItem from "../components/SmallProjectItem.tsx";
 
 export const MIN_PROJECT_LIST_TRANSLATE = 0;
-export const MAX_PROJECT_LIST_TRANSLATE = 4*400+3*32+16*8*2 - window.innerWidth;
+export const MAX_PROJECT_LIST_TRANSLATE = 7*400+6*32+16*8*2 - window.innerWidth;
 
 const Projects = () => {
 
